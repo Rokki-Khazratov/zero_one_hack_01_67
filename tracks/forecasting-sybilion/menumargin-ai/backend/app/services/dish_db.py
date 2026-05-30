@@ -189,6 +189,7 @@ def list_dishes(with_cost: bool = True) -> list[dict]:
         row = dict(dish)
         if with_cost:
             row["cost_info"] = calculate_dish_cost(dish, prices)
+            row["forecast"]  = calculate_dish_forecast(dish)
         result.append(row)
     return result
 

@@ -1,12 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
-import { analyzeMenu, generateRecommendations, simulateScenario } from "@/lib/api";
-import { MenuAnalysis, Recommendation, IngredientForecast, ScenarioResult } from "@/types/menu";
+import { getDishes, getLatestForecasts, simulateScenario } from "@/lib/api";
+import { Dish } from "@/types/crud";
+import { MenuAnalysis, IngredientForecast, ScenarioResult } from "@/types/menu";
 import { SummaryCards } from "@/components/SummaryCards";
 import { MenuRiskTable } from "@/components/MenuRiskTable";
 import { DishMarginChart } from "@/components/DishMarginChart";
 import { IngredientForecastChart } from "@/components/IngredientForecastChart";
-import { RecommendationCard } from "@/components/RecommendationCard";
 import { ScenarioControls, ScenarioValues } from "@/components/ScenarioControls";
 import { ReasoningPanel } from "@/components/ReasoningPanel";
 import { Navigation } from "@/components/Navigation";
@@ -38,9 +38,63 @@ function LoadingSkeleton() {
   );
 }
 
+function buildAnalysisFromDishes(dishes: Dish[]): MenuAnalysis {
+  const dishAnalyses = dishes.map((d) => {
+    const ci = d.cost_info;
+    const fc = d.forecast;
+    const currentMargin = ci?.current_margin ?? 0;
+    const targetMargin = d.target_margin;
+    const minExpected = fc?.min_expected_margin ?? currentMargin;
+    const minWorst = fc?.min_worst_margin ?? currentMargin;
+
+    let risk: "ok" | "medium" | "high" | "critical" = "ok";
+    if (minWorst < targetMargin && minExpected < targetMargin) risk = "critical";
+    else if (minExpected < targetMargin) risk = "high";
+    else if (minWorst < targetMargin) risk = "medium";
+
+    const monthMargins = (fc?.series ?? []).map((pt) => ({
+      month: pt.month,
+      expected_cost: pt.expected_cost,
+      worst_case_cost: pt.worst_cost,
+      best_case_cost: pt.best_cost,
+      expected_margin: pt.expected_margin,
+      worst_case_margin: pt.worst_margin,
+      best_case_margin: pt.best_margin,
+    }));
+
+    return {
+      dish: d.name,
+      current_price: d.current_price_eur,
+      target_margin: targetMargin,
+      current_margin: currentMargin,
+      month_margins: monthMargins,
+      risk_level: risk,
+      min_expected_margin: minExpected,
+      min_worst_case_margin: minWorst,
+    };
+  });
+
+  const atRisk = dishAnalyses.filter((d) => d.risk_level !== "ok").length;
+  const critical = dishAnalyses.filter((d) => d.risk_level === "critical").length;
+  const avgDrop = dishAnalyses.reduce((s, d) => s + (d.min_expected_margin - d.target_margin), 0) / Math.max(dishAnalyses.length, 1);
+
+  // Find highest risk ingredient (by max price upside in forecast)
+  let highestRiskIng = "olive_oil";
+
+  return {
+    summary: {
+      dishes_at_risk: atRisk,
+      critical_dishes: critical,
+      average_margin_drop: Math.round(avgDrop * 10000) / 10000,
+      highest_risk_ingredient: highestRiskIng,
+      total_dishes: dishAnalyses.length,
+    },
+    dishes: dishAnalyses,
+  };
+}
+
 export default function Home() {
   const [analysis, setAnalysis]     = useState<MenuAnalysis | null>(null);
-  const [recs, setRecs]             = useState<Recommendation[]>([]);
   const [forecasts, setForecasts]   = useState<Record<string, IngredientForecast>>({});
   const [scenario, setScenario]     = useState<ScenarioResult | null>(null);
   const [selectedDish, setDish]     = useState<string | null>(null);
@@ -55,17 +109,21 @@ export default function Home() {
     setLoading(true);
     setError(null);
     try {
-      const [menu, recsData] = await Promise.all([analyzeMenu(), generateRecommendations()]);
-      if (menu.detail) throw new Error(menu.detail);
-      setAnalysis(menu);
-      setRecs(recsData.recommendations ?? []);
-      setDish(menu.dishes?.[0]?.dish ?? null);
+      // Fetch dishes from DB + forecasts
+      const [dishData, fcResp] = await Promise.all([
+        getDishes(),
+        getLatestForecasts(),
+      ]);
 
-      const r = await fetch(`${API}/api/forecast/latest`);
-      const fd = await r.json();
-      const fcs = fd.forecasts ?? {};
+      const dishes: Dish[] = dishData.dishes ?? [];
+      const fcs = fcResp.forecasts ?? {};
       setForecasts(fcs);
       if (!fcs["olive_oil"] && Object.keys(fcs).length > 0) setIng(Object.keys(fcs)[0]);
+
+      // Build MenuAnalysis from dish DB data
+      const menuAnalysis = buildAnalysisFromDishes(dishes);
+      setAnalysis(menuAnalysis);
+      setDish(menuAnalysis.dishes?.[0]?.dish ?? null);
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -84,7 +142,6 @@ export default function Home() {
   }
 
   const dishData = analysis?.dishes.find((d) => d.dish === selectedDish) ?? null;
-  const dishRec  = recs.find((r) => r.dish === selectedDish) ?? null;
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg)", color: "var(--text-1)" }}>
@@ -137,7 +194,7 @@ export default function Home() {
             <SectionLabel>Menu Performance — select a dish to inspect</SectionLabel>
             <MenuRiskTable
               dishes={analysis.dishes}
-              recs={recs}
+              recs={[]}
               onSelectDish={setDish}
               selectedDish={selectedDish}
             />
@@ -149,7 +206,6 @@ export default function Home() {
               <SectionLabel>Dish Analysis</SectionLabel>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                 <DishMarginChart dish={dishData} />
-                {dishRec && <RecommendationCard rec={dishRec} />}
               </div>
             </section>
           )}
@@ -191,7 +247,7 @@ export default function Home() {
             <SectionLabel>Scenario Engine</SectionLabel>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
               <ScenarioControls onSimulate={runScenario} loading={scenarioLoading} />
-              <ReasoningPanel recs={recs} scenario={scenario} />
+              <ReasoningPanel recs={[]} scenario={scenario} />
             </div>
           </section>
 
