@@ -12,40 +12,41 @@ DB_PATH  = DATA_DIR / "db" / "ingredients.json"
 DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 # ── Full Eurostat HICP catalog ────────────────────────────────────────
+# prices are approximate restaurant wholesale EUR/kg (or EUR/L for liquids)
 EUROSTAT_CATALOG: list[dict] = [
-    {"id": "pasta",      "name": "Pasta & Couscous",           "coicop": "CP01116", "category": "Grains"},
-    {"id": "flour",      "name": "Flour & Cereals",            "coicop": "CP01112", "category": "Grains"},
-    {"id": "bread",      "name": "Bread",                      "coicop": "CP01113", "category": "Grains"},
-    {"id": "rice",       "name": "Rice",                       "coicop": "CP01111", "category": "Grains"},
+    {"id": "pasta",      "name": "Pasta & Couscous",           "coicop": "CP01116", "category": "Grains",      "price": 4.20},
+    {"id": "flour",      "name": "Flour & Cereals",            "coicop": "CP01112", "category": "Grains",      "price": 2.80},
+    {"id": "bread",      "name": "Bread",                      "coicop": "CP01113", "category": "Grains",      "price": 3.50},
+    {"id": "rice",       "name": "Rice",                       "coicop": "CP01111", "category": "Grains",      "price": 2.80},
 
-    {"id": "beef",       "name": "Beef & Veal",                "coicop": "CP01121", "category": "Meat"},
-    {"id": "pork",       "name": "Pork",                       "coicop": "CP01122", "category": "Meat"},
-    {"id": "chicken",    "name": "Poultry (Chicken)",          "coicop": "CP01124", "category": "Meat"},
-    {"id": "lamb",       "name": "Lamb & Goat",                "coicop": "CP01123", "category": "Meat"},
+    {"id": "beef",       "name": "Beef & Veal",                "coicop": "CP01121", "category": "Meat",        "price": 16.00},
+    {"id": "pork",       "name": "Pork",                       "coicop": "CP01122", "category": "Meat",        "price": 8.50},
+    {"id": "chicken",    "name": "Poultry (Chicken)",          "coicop": "CP01124", "category": "Meat",        "price": 7.50},
+    {"id": "lamb",       "name": "Lamb & Goat",                "coicop": "CP01123", "category": "Meat",        "price": 18.00},
 
-    {"id": "fish",       "name": "Fresh Fish & Seafood",       "coicop": "CP01131", "category": "Fish"},
+    {"id": "fish",       "name": "Fresh Fish & Seafood",       "coicop": "CP01131", "category": "Fish",        "price": 14.00},
 
-    {"id": "milk",       "name": "Fresh Whole Milk",           "coicop": "CP01141", "category": "Dairy"},
-    {"id": "cheese",     "name": "Cheese & Curd",              "coicop": "CP01144", "category": "Dairy"},
-    {"id": "eggs",       "name": "Eggs",                       "coicop": "CP01147", "category": "Dairy"},
-    {"id": "butter",     "name": "Butter",                     "coicop": "CP01151", "category": "Dairy"},
-    {"id": "cream",      "name": "Cream & Yoghurt",            "coicop": "CP01142", "category": "Dairy"},
+    {"id": "milk",       "name": "Fresh Whole Milk",           "coicop": "CP01141", "category": "Dairy",       "price": 1.60},
+    {"id": "cheese",     "name": "Cheese & Curd",              "coicop": "CP01144", "category": "Dairy",       "price": 18.50},
+    {"id": "eggs",       "name": "Eggs",                       "coicop": "CP01147", "category": "Dairy",       "price": 9.50},
+    {"id": "butter",     "name": "Butter",                     "coicop": "CP01151", "category": "Dairy",       "price": 8.50},
+    {"id": "cream",      "name": "Cream & Yoghurt",            "coicop": "CP01142", "category": "Dairy",       "price": 6.00},
 
-    {"id": "olive_oil",  "name": "Olive Oil (extra virgin)",   "coicop": "CP01153", "category": "Oils"},
-    {"id": "other_oils", "name": "Sunflower / Veggie Oil",     "coicop": "CP01154", "category": "Oils"},
+    {"id": "olive_oil",  "name": "Olive Oil (extra virgin)",   "coicop": "CP01153", "category": "Oils",        "price": 19.00},
+    {"id": "other_oils", "name": "Sunflower / Veggie Oil",     "coicop": "CP01154", "category": "Oils",        "price": 3.20},
 
-    {"id": "tomatoes",   "name": "Fresh Vegetables (Tomato proxy)", "coicop": "CP01171", "category": "Vegetables"},
-    {"id": "potatoes",   "name": "Potatoes",                   "coicop": "CP01174", "category": "Vegetables"},
+    {"id": "tomatoes",   "name": "Fresh Vegetables (Tomato proxy)", "coicop": "CP01171", "category": "Vegetables", "price": 4.80},
+    {"id": "potatoes",   "name": "Potatoes",                   "coicop": "CP01174", "category": "Vegetables", "price": 1.80},
 
-    {"id": "fruit",      "name": "Fresh Fruit",                "coicop": "CP01161", "category": "Fruit"},
+    {"id": "fruit",      "name": "Fresh Fruit",                "coicop": "CP01161", "category": "Fruit",       "price": 3.50},
 
-    {"id": "sugar",      "name": "Sugar",                      "coicop": "CP01181", "category": "Pantry"},
-    {"id": "coffee",     "name": "Coffee, Tea & Cocoa",        "coicop": "CP0121",  "category": "Pantry"},
-    {"id": "chocolate",  "name": "Chocolate & Confectionery",  "coicop": "CP01183", "category": "Pantry"},
-    {"id": "salt",       "name": "Salt, Spices & Condiments",  "coicop": "CP01191", "category": "Pantry"},
+    {"id": "sugar",      "name": "Sugar",                      "coicop": "CP01181", "category": "Pantry",      "price": 1.50},
+    {"id": "coffee",     "name": "Coffee, Tea & Cocoa",        "coicop": "CP0121",  "category": "Pantry",      "price": 18.00},
+    {"id": "chocolate",  "name": "Chocolate & Confectionery",  "coicop": "CP01183", "category": "Pantry",      "price": 12.00},
+    {"id": "salt",       "name": "Salt, Spices & Condiments",  "coicop": "CP01191", "category": "Pantry",      "price": 4.00},
 
-    {"id": "wine",       "name": "Wine",                       "coicop": "CP0211",  "category": "Beverages"},
-    {"id": "beer",       "name": "Beer",                       "coicop": "CP0212",  "category": "Beverages"},
+    {"id": "wine",       "name": "Wine",                       "coicop": "CP0211",  "category": "Beverages",   "price": 8.00},
+    {"id": "beer",       "name": "Beer",                       "coicop": "CP0212",  "category": "Beverages",   "price": 3.50},
 ]
 
 CATALOG_BY_ID = {c["id"]: c for c in EUROSTAT_CATALOG}
@@ -53,26 +54,23 @@ CATALOG_BY_ID = {c["id"]: c for c in EUROSTAT_CATALOG}
 
 # ── Default active ingredients (seeded from current_prices.csv) ───────
 def _default_ingredients() -> list[dict]:
-    current_prices = {
-        "pasta": 4.20, "tomatoes": 4.80, "cheese": 18.50,
-        "olive_oil": 19.00, "eggs": 9.50, "flour": 2.80,
-    }
     now = datetime.utcnow().isoformat()
     result = []
     for cat in EUROSTAT_CATALOG:
         cid = cat["id"]
+        price = cat.get("price", 5.0)
         result.append({
             "id":                    cid,
             "name":                  cat["name"],
             "coicop":                cat["coicop"],
             "category":              cat["category"],
-            "current_price_eur_kg":  current_prices.get(cid, 5.0),
+            "current_price_eur_kg":  price,
             "unit":                  "kg",
             "geo":                   "EU27_2020",
             "has_forecast":          cid in {"pasta","tomatoes","cheese","olive_oil","eggs","flour",
                                              "butter","cream","chicken","rice","wine","potatoes",
                                              "sugar","coffee","milk","fish"},
-            "price_fetched_at":      now if cid in current_prices else None,
+            "price_fetched_at":      now if price else None,
             "added_at":              now,
             "notes":                 "",
         })
@@ -107,12 +105,13 @@ def create_ingredient(data: dict) -> dict:
     if any(i["id"] == ing_id for i in db):
         raise ValueError(f"Ingredient '{ing_id}' already exists")
     catalog_entry = CATALOG_BY_ID.get(ing_id, {})
+    default_price = catalog_entry.get("price", 5.0)
     new = {
         "id":                   ing_id,
         "name":                 data.get("name", catalog_entry.get("name", ing_id)),
         "coicop":               data.get("coicop", catalog_entry.get("coicop", "")),
         "category":             data.get("category", catalog_entry.get("category", "Other")),
-        "current_price_eur_kg": float(data.get("current_price_eur_kg", 5.0)),
+        "current_price_eur_kg": float(data.get("current_price_eur_kg", default_price)),
         "unit":                 data.get("unit", "kg"),
         "geo":                  data.get("geo", "EU27_2020"),
         "has_forecast":         False,
@@ -161,6 +160,6 @@ def get_catalog() -> list[dict]:
     """Full Eurostat catalog for the ingredient picker."""
     active_ids = {i["id"] for i in _load()}
     return [
-        {**cat, "active": cat["id"] in active_ids}
+        {**cat, "current_price_eur_kg": cat.get("price", 5.0), "active": cat["id"] in active_ids}
         for cat in EUROSTAT_CATALOG
     ]
