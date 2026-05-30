@@ -1,0 +1,124 @@
+{
+  "ingredient": "pasta",
+  "unit": "EUR/kg",
+  "source_format": "converted_cache_v2",
+  "forecast_start": "2026-01-01",
+  "forecast_end": "2026-06-01",
+  "horizon_months": 6,
+  "last_historical_date": "2025-12-01",
+  "current_price_eur_kg": 4.2,
+  "series": [
+    {
+      "month": "2026-01",
+      "price_median": 4.201,
+      "price_lower": 4.165,
+      "price_upper": 4.2374,
+      "price_p10": 4.1924,
+      "price_p90": 4.2097,
+      "band_width_abs": 0.0724,
+      "band_width_pct": 0.0172,
+      "upside_risk_pct": 0.0087
+    },
+    {
+      "month": "2026-02",
+      "price_median": 4.1965,
+      "price_lower": 4.151,
+      "price_upper": 4.2425,
+      "price_p10": 4.1786,
+      "price_p90": 4.2144,
+      "band_width_abs": 0.0915,
+      "band_width_pct": 0.0218,
+      "upside_risk_pct": 0.011
+    },
+    {
+      "month": "2026-03",
+      "price_median": 4.1916,
+      "price_lower": 4.1323,
+      "price_upper": 4.2519,
+      "price_p10": 4.1647,
+      "price_p90": 4.2187,
+      "band_width_abs": 0.1196,
+      "band_width_pct": 0.0285,
+      "upside_risk_pct": 0.0144
+    },
+    {
+      "month": "2026-04",
+      "price_median": 4.1867,
+      "price_lower": 4.1118,
+      "price_upper": 4.2629,
+      "price_p10": 4.152,
+      "price_p90": 4.2217,
+      "band_width_abs": 0.1511,
+      "band_width_pct": 0.0361,
+      "upside_risk_pct": 0.0182
+    },
+    {
+      "month": "2026-05",
+      "price_median": 4.1816,
+      "price_lower": 4.0915,
+      "price_upper": 4.2736,
+      "price_p10": 4.1331,
+      "price_p90": 4.2306,
+      "band_width_abs": 0.1821,
+      "band_width_pct": 0.0435,
+      "upside_risk_pct": 0.022
+    },
+    {
+      "month": "2026-06",
+      "price_median": 4.1764,
+      "price_lower": 4.0642,
+      "price_upper": 4.2916,
+      "price_p10": 4.1077,
+      "price_p90": 4.2462,
+      "band_width_abs": 0.2274,
+      "band_width_pct": 0.0544,
+      "upside_risk_pct": 0.0276
+    }
+  ],
+  "drivers": [
+    {
+      "name": "Income, consumption and living conditions - United States of America",
+      "raw_name": "Income, consumption and living conditions - United States of America",
+      "importance": 100.0,
+      "direction": -0.014,
+      "relevance_score": 0.1,
+      "visible": false
+    },
+    {
+      "name": "EU27 (from 2020) trade \u2013 Imports (Growth rate M/M-1 of the seasonally an\u2026",
+      "raw_name": "EU27 (from 2020) trade \u2013 Imports (Growth rate M/M-1 of the seasonally and calendar adjusted trade value, South Africa, Animal and vegetable oils, fats and waxes, European Union - 27 countries (from 2020)) in South Africa",
+      "importance": 97.3,
+      "direction": -0.029,
+      "relevance_score": 0.1,
+      "visible": false
+    },
+    {
+      "name": "EU27 (from 2020) trade \u2013 Imports (Growth rate M/M-12 of the unit-value i\u2026",
+      "raw_name": "EU27 (from 2020) trade \u2013 Imports (Growth rate M/M-12 of the unit-value indices, Africa, Animal and vegetable oils, fats and waxes, European Union - 27 countries (from 2020)) in Africa",
+      "importance": 75.16,
+      "direction": 0.07,
+      "relevance_score": 0.1,
+      "visible": false
+    },
+    {
+      "name": "Industry, manufacturing - United States of America",
+      "raw_name": "Industry, manufacturing - United States of America",
+      "importance": 72.45,
+      "direction": 0.791,
+      "relevance_score": 0.1,
+      "visible": false
+    },
+    {
+      "name": "Labour market \u2014 United States Of America",
+      "raw_name": "Labour market - United States of America",
+      "importance": 97.92,
+      "direction": 0.752,
+      "relevance_score": 0.0,
+      "visible": false
+    }
+  ],
+  "warnings": [
+    "Median forecast is nearly flat (-0.6% over 6 months). Margin risk comes primarily from your current cost baseline and scenario assumptions.",
+    "No clearly relevant external drivers identified for this ingredient. Recommendation is based on forecast distribution and margin impact."
+  ]
+}

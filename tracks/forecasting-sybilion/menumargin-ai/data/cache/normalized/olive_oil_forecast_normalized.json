@@ -1,0 +1,121 @@
+{
+  "ingredient": "olive_oil",
+  "unit": "EUR/kg",
+  "source_format": "converted_cache_v2",
+  "forecast_start": "2026-01-01",
+  "forecast_end": "2026-06-01",
+  "horizon_months": 6,
+  "last_historical_date": "2025-12-01",
+  "current_price_eur_kg": 19.0,
+  "series": [
+    {
+      "month": "2026-01",
+      "price_median": 18.7123,
+      "price_lower": 17.4216,
+      "price_upper": 20.0979,
+      "price_p10": 17.7693,
+      "price_p90": 19.7049,
+      "band_width_abs": 2.6763,
+      "band_width_pct": 0.143,
+      "upside_risk_pct": 0.074
+    },
+    {
+      "month": "2026-02",
+      "price_median": 18.3882,
+      "price_lower": 16.4149,
+      "price_upper": 20.5968,
+      "price_p10": 17.007,
+      "price_p90": 19.8806,
+      "band_width_abs": 4.1819,
+      "band_width_pct": 0.2274,
+      "upside_risk_pct": 0.1201
+    },
+    {
+      "month": "2026-03",
+      "price_median": 18.0641,
+      "price_lower": 15.8477,
+      "price_upper": 20.588,
+      "price_p10": 16.4661,
+      "price_p90": 19.816,
+      "band_width_abs": 4.7403,
+      "band_width_pct": 0.2624,
+      "upside_risk_pct": 0.1397
+    },
+    {
+      "month": "2026-04",
+      "price_median": 17.7381,
+      "price_lower": 15.0883,
+      "price_upper": 20.8491,
+      "price_p10": 15.7767,
+      "price_p90": 19.9412,
+      "band_width_abs": 5.7608,
+      "band_width_pct": 0.3248,
+      "upside_risk_pct": 0.1754
+    },
+    {
+      "month": "2026-05",
+      "price_median": 17.4054,
+      "price_lower": 13.8536,
+      "price_upper": 21.8593,
+      "price_p10": 14.6401,
+      "price_p90": 20.6884,
+      "band_width_abs": 8.0057,
+      "band_width_pct": 0.46,
+      "upside_risk_pct": 0.2559
+    },
+    {
+      "month": "2026-06",
+      "price_median": 17.0546,
+      "price_lower": 11.8603,
+      "price_upper": 24.4987,
+      "price_p10": 13.0624,
+      "price_p90": 22.2547,
+      "band_width_abs": 12.6384,
+      "band_width_pct": 0.7411,
+      "upside_risk_pct": 0.4365
+    }
+  ],
+  "drivers": [
+    {
+      "name": "Consumer price index: Olive Oil \u2014 Europe",
+      "raw_name": "HICP \u2013 Olive oil in Europe",
+      "importance": 98.31,
+      "direction": -0.049,
+      "relevance_score": 1.0,
+      "visible": true
+    },
+    {
+      "name": "Consumer price index: Olive Oil \u2014 Spain",
+      "raw_name": "HICP \u2013 Olive oil in Spain",
+      "importance": 97.72,
+      "direction": 0.275,
+      "relevance_score": 1.0,
+      "visible": true
+    },
+    {
+      "name": "Turkey exports: Plastics \u2014 road",
+      "raw_name": "Turkey exports of Plastics (qty, Weight in kilograms) via Road",
+      "importance": 100.0,
+      "direction": -0.322,
+      "relevance_score": 0.1,
+      "visible": false
+    },
+    {
+      "name": "Equities - World",
+      "raw_name": "Equities - World",
+      "importance": 94.13,
+      "direction": 0.009,
+      "relevance_score": 0.1,
+      "visible": false
+    },
+    {
+      "name": "Labour market \u2014 United States Of America",
+      "raw_name": "Labour market - United States of America",
+      "importance": 94.62,
+      "direction": 0.701,
+      "relevance_score": 0.0,
+      "visible": false
+    }
+  ],
+  "warnings": []
+}

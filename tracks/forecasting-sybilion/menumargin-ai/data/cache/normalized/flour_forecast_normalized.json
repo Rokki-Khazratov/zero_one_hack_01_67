@@ -1,0 +1,121 @@
+{
+  "ingredient": "flour",
+  "unit": "EUR/kg",
+  "source_format": "converted_cache_v2",
+  "forecast_start": "2026-01-01",
+  "forecast_end": "2026-06-01",
+  "horizon_months": 6,
+  "last_historical_date": "2025-12-01",
+  "current_price_eur_kg": 2.8,
+  "series": [
+    {
+      "month": "2026-01",
+      "price_median": 2.7963,
+      "price_lower": 2.7703,
+      "price_upper": 2.8225,
+      "price_p10": 2.7766,
+      "price_p90": 2.8161,
+      "band_width_abs": 0.0522,
+      "band_width_pct": 0.0187,
+      "upside_risk_pct": 0.0094
+    },
+    {
+      "month": "2026-02",
+      "price_median": 2.7843,
+      "price_lower": 2.7383,
+      "price_upper": 2.8311,
+      "price_p10": 2.746,
+      "price_p90": 2.8232,
+      "band_width_abs": 0.0928,
+      "band_width_pct": 0.0333,
+      "upside_risk_pct": 0.0168
+    },
+    {
+      "month": "2026-03",
+      "price_median": 2.772,
+      "price_lower": 2.7022,
+      "price_upper": 2.8437,
+      "price_p10": 2.7122,
+      "price_p90": 2.8333,
+      "band_width_abs": 0.1415,
+      "band_width_pct": 0.051,
+      "upside_risk_pct": 0.0259
+    },
+    {
+      "month": "2026-04",
+      "price_median": 2.7596,
+      "price_lower": 2.6614,
+      "price_upper": 2.8615,
+      "price_p10": 2.6816,
+      "price_p90": 2.8399,
+      "band_width_abs": 0.2001,
+      "band_width_pct": 0.0725,
+      "upside_risk_pct": 0.0369
+    },
+    {
+      "month": "2026-05",
+      "price_median": 2.7472,
+      "price_lower": 2.6387,
+      "price_upper": 2.8601,
+      "price_p10": 2.6591,
+      "price_p90": 2.8382,
+      "band_width_abs": 0.2214,
+      "band_width_pct": 0.0806,
+      "upside_risk_pct": 0.0411
+    },
+    {
+      "month": "2026-06",
+      "price_median": 2.7361,
+      "price_lower": 2.6207,
+      "price_upper": 2.8565,
+      "price_p10": 2.6429,
+      "price_p90": 2.8325,
+      "band_width_abs": 0.2358,
+      "band_width_pct": 0.0862,
+      "upside_risk_pct": 0.044
+    }
+  ],
+  "drivers": [
+    {
+      "name": "Food price monitoring tool, Index, 2015=100, Producer price index, Bread\u2026",
+      "raw_name": "Food price monitoring tool, Index, 2015=100, Producer price index, Bread and cereals, European Union - 27 countries (from 2020) in Europe",
+      "importance": 85.79,
+      "direction": 0.987,
+      "relevance_score": 1.0,
+      "visible": true
+    },
+    {
+      "name": "Energy - Belgium",
+      "raw_name": "Energy - Belgium",
+      "importance": 15.68,
+      "direction": 0.688,
+      "relevance_score": 0.333,
+      "visible": true
+    },
+    {
+      "name": "CPI by expenditure category and country",
+      "raw_name": "CPI by expenditure category and country",
+      "importance": 98.17,
+      "direction": 0.624,
+      "relevance_score": 0.1,
+      "visible": false
+    },
+    {
+      "name": "CPI by expenditure category and country",
+      "raw_name": "CPI by expenditure category and country",
+      "importance": 48.25,
+      "direction": 0.598,
+      "relevance_score": 0.1,
+      "visible": false
+    },
+    {
+      "name": "Population \u2014 Cuba",
+      "raw_name": "Population - Cuba",
+      "importance": 100.0,
+      "direction": 0.178,
+      "relevance_score": 0.0,
+      "visible": false
+    }
+  ],
+  "warnings": []
+}

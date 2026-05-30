@@ -1,0 +1,105 @@
+{
+  "ingredient": "potatoes",
+  "unit": "EUR/kg",
+  "source_format": "converted_cache_v2",
+  "forecast_start": "2026-01-01",
+  "forecast_end": "2026-06-01",
+  "horizon_months": 6,
+  "last_historical_date": "2025-12",
+  "current_price_eur_kg": 1.8,
+  "series": [
+    {
+      "month": "2026-01",
+      "price_median": 1.6511,
+      "price_lower": 1.5919,
+      "price_upper": 1.7103,
+      "price_p10": 1.6049,
+      "price_p90": 1.6972,
+      "band_width_abs": 0.1184,
+      "band_width_pct": 0.0717,
+      "upside_risk_pct": 0.0359
+    },
+    {
+      "month": "2026-02",
+      "price_median": 1.6103,
+      "price_lower": 1.5266,
+      "price_upper": 1.6941,
+      "price_p10": 1.5451,
+      "price_p90": 1.6756,
+      "band_width_abs": 0.1675,
+      "band_width_pct": 0.104,
+      "upside_risk_pct": 0.052
+    },
+    {
+      "month": "2026-03",
+      "price_median": 1.5784,
+      "price_lower": 1.4758,
+      "price_upper": 1.681,
+      "price_p10": 1.4985,
+      "price_p90": 1.6583,
+      "band_width_abs": 0.2052,
+      "band_width_pct": 0.13,
+      "upside_risk_pct": 0.065
+    },
+    {
+      "month": "2026-04",
+      "price_median": 1.5745,
+      "price_lower": 1.4561,
+      "price_upper": 1.6929,
+      "price_p10": 1.4822,
+      "price_p90": 1.6668,
+      "band_width_abs": 0.2368,
+      "band_width_pct": 0.1504,
+      "upside_risk_pct": 0.0752
+    },
+    {
+      "month": "2026-05",
+      "price_median": 1.5497,
+      "price_lower": 1.4173,
+      "price_upper": 1.6821,
+      "price_p10": 1.4465,
+      "price_p90": 1.6529,
+      "band_width_abs": 0.2648,
+      "band_width_pct": 0.1709,
+      "upside_risk_pct": 0.0854
+    },
+    {
+      "month": "2026-06",
+      "price_median": 1.5438,
+      "price_lower": 1.3988,
+      "price_upper": 1.6889,
+      "price_p10": 1.4308,
+      "price_p90": 1.6569,
+      "band_width_abs": 0.2901,
+      "band_width_pct": 0.1879,
+      "upside_risk_pct": 0.094
+    }
+  ],
+  "drivers": [
+    {
+      "name": "EU food inflation",
+      "raw_name": "EU food inflation",
+      "importance": 85.0,
+      "direction": -1.0,
+      "relevance_score": 0.5,
+      "visible": true
+    },
+    {
+      "name": "Energy costs",
+      "raw_name": "Energy costs",
+      "importance": 60.0,
+      "direction": 0.5,
+      "relevance_score": 0.5,
+      "visible": true
+    },
+    {
+      "name": "Supply chain",
+      "raw_name": "Supply chain",
+      "importance": 45.0,
+      "direction": 0.3,
+      "relevance_score": 0.5,
+      "visible": true
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,105 @@
+{
+  "ingredient": "coffee",
+  "unit": "EUR/kg",
+  "source_format": "converted_cache_v2",
+  "forecast_start": "2026-01-01",
+  "forecast_end": "2026-06-01",
+  "horizon_months": 6,
+  "last_historical_date": "2025-12",
+  "current_price_eur_kg": 18.0,
+  "series": [
+    {
+      "month": "2026-01",
+      "price_median": 19.3906,
+      "price_lower": 18.7984,
+      "price_upper": 19.9828,
+      "price_p10": 18.9291,
+      "price_p90": 19.8522,
+      "band_width_abs": 1.1844,
+      "band_width_pct": 0.0611,
+      "upside_risk_pct": 0.0305
+    },
+    {
+      "month": "2026-02",
+      "price_median": 19.6512,
+      "price_lower": 18.8137,
+      "price_upper": 20.4887,
+      "price_p10": 18.9985,
+      "price_p90": 20.3039,
+      "band_width_abs": 1.675,
+      "band_width_pct": 0.0852,
+      "upside_risk_pct": 0.0426
+    },
+    {
+      "month": "2026-03",
+      "price_median": 19.8322,
+      "price_lower": 18.8065,
+      "price_upper": 20.8579,
+      "price_p10": 19.0328,
+      "price_p90": 20.6316,
+      "band_width_abs": 2.0514,
+      "band_width_pct": 0.1034,
+      "upside_risk_pct": 0.0517
+    },
+    {
+      "month": "2026-04",
+      "price_median": 20.0034,
+      "price_lower": 18.819,
+      "price_upper": 21.1878,
+      "price_p10": 19.0804,
+      "price_p90": 20.9265,
+      "band_width_abs": 2.3688,
+      "band_width_pct": 0.1184,
+      "upside_risk_pct": 0.0592
+    },
+    {
+      "month": "2026-05",
+      "price_median": 20.2276,
+      "price_lower": 18.9034,
+      "price_upper": 21.5518,
+      "price_p10": 19.1956,
+      "price_p90": 21.2596,
+      "band_width_abs": 2.6484,
+      "band_width_pct": 0.1309,
+      "upside_risk_pct": 0.0655
+    },
+    {
+      "month": "2026-06",
+      "price_median": 20.4094,
+      "price_lower": 18.9588,
+      "price_upper": 21.86,
+      "price_p10": 19.2789,
+      "price_p90": 21.5399,
+      "band_width_abs": 2.9012,
+      "band_width_pct": 0.1422,
+      "upside_risk_pct": 0.0711
+    }
+  ],
+  "drivers": [
+    {
+      "name": "EU food inflation",
+      "raw_name": "EU food inflation",
+      "importance": 85.0,
+      "direction": 1.0,
+      "relevance_score": 0.5,
+      "visible": true
+    },
+    {
+      "name": "Energy costs",
+      "raw_name": "Energy costs",
+      "importance": 60.0,
+      "direction": 0.5,
+      "relevance_score": 0.5,
+      "visible": true
+    },
+    {
+      "name": "Supply chain",
+      "raw_name": "Supply chain",
+      "importance": 45.0,
+      "direction": 0.3,
+      "relevance_score": 0.5,
+      "visible": true
+    }
+  ],
+  "warnings": []
+}

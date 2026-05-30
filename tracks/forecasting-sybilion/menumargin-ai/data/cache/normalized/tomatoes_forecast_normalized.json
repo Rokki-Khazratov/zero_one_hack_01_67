@@ -1,0 +1,83 @@
+{
+  "ingredient": "tomatoes",
+  "unit": "EUR/kg",
+  "source_format": "converted_cache_v2",
+  "forecast_start": "2026-01-01",
+  "forecast_end": "2026-06-01",
+  "horizon_months": 6,
+  "last_historical_date": "2025-12-01",
+  "current_price_eur_kg": 4.8,
+  "series": [
+    {
+      "month": "2026-01",
+      "price_median": 4.6765,
+      "price_lower": 4.253,
+      "price_upper": 5.1419,
+      "price_p10": 4.3184,
+      "price_p90": 5.0641,
+      "band_width_abs": 0.8889,
+      "band_width_pct": 0.1901,
+      "upside_risk_pct": 0.0995
+    },
+    {
+      "month": "2026-02",
+      "price_median": 4.7486,
+      "price_lower": 4.6002,
+      "price_upper": 4.9018,
+      "price_p10": 4.6431,
+      "price_p90": 4.8566,
+      "band_width_abs": 0.3016,
+      "band_width_pct": 0.0635,
+      "upside_risk_pct": 0.0323
+    },
+    {
+      "month": "2026-03",
+      "price_median": 4.728,
+      "price_lower": 4.6735,
+      "price_upper": 4.7831,
+      "price_p10": 4.6786,
+      "price_p90": 4.7779,
+      "band_width_abs": 0.1096,
+      "band_width_pct": 0.0232,
+      "upside_risk_pct": 0.0117
+    },
+    {
+      "month": "2026-04",
+      "price_median": 4.745,
+      "price_lower": 4.646,
+      "price_upper": 4.8461,
+      "price_p10": 4.6638,
+      "price_p90": 4.8275,
+      "band_width_abs": 0.2001,
+      "band_width_pct": 0.0422,
+      "upside_risk_pct": 0.0213
+    },
+    {
+      "month": "2026-05",
+      "price_median": 4.7235,
+      "price_lower": 4.5568,
+      "price_upper": 4.8963,
+      "price_p10": 4.6141,
+      "price_p90": 4.8355,
+      "band_width_abs": 0.3395,
+      "band_width_pct": 0.0719,
+      "upside_risk_pct": 0.0366
+    },
+    {
+      "month": "2026-06",
+      "price_median": 4.7106,
+      "price_lower": 4.3884,
+      "price_upper": 5.0562,
+      "price_p10": 4.4158,
+      "price_p90": 5.0249,
+      "band_width_abs": 0.6678,
+      "band_width_pct": 0.1418,
+      "upside_risk_pct": 0.0734
+    }
+  ],
+  "drivers": [],
+  "warnings": [
+    "Median forecast is nearly flat (+0.7% over 6 months). Margin risk comes primarily from your current cost baseline and scenario assumptions.",
+    "No clearly relevant external drivers identified for this ingredient. Recommendation is based on forecast distribution and margin impact."
+  ]
+}

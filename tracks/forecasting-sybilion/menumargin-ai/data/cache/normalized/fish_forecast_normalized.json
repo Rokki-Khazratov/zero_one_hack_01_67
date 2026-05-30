@@ -1,0 +1,105 @@
+{
+  "ingredient": "fish",
+  "unit": "EUR/kg",
+  "source_format": "converted_cache_v2",
+  "forecast_start": "2026-01-01",
+  "forecast_end": "2026-06-01",
+  "horizon_months": 6,
+  "last_historical_date": "2025-12",
+  "current_price_eur_kg": 14.0,
+  "series": [
+    {
+      "month": "2026-01",
+      "price_median": 14.3334,
+      "price_lower": 13.8728,
+      "price_upper": 14.794,
+      "price_p10": 13.9744,
+      "price_p90": 14.6923,
+      "band_width_abs": 0.9212,
+      "band_width_pct": 0.0643,
+      "upside_risk_pct": 0.0321
+    },
+    {
+      "month": "2026-02",
+      "price_median": 14.3696,
+      "price_lower": 13.7182,
+      "price_upper": 15.021,
+      "price_p10": 13.862,
+      "price_p90": 14.8773,
+      "band_width_abs": 1.3028,
+      "band_width_pct": 0.0907,
+      "upside_risk_pct": 0.0453
+    },
+    {
+      "month": "2026-03",
+      "price_median": 14.5561,
+      "price_lower": 13.7584,
+      "price_upper": 15.3539,
+      "price_p10": 13.9344,
+      "price_p90": 15.1779,
+      "band_width_abs": 1.5955,
+      "band_width_pct": 0.1096,
+      "upside_risk_pct": 0.0548
+    },
+    {
+      "month": "2026-04",
+      "price_median": 14.6577,
+      "price_lower": 13.7365,
+      "price_upper": 15.5789,
+      "price_p10": 13.9398,
+      "price_p90": 15.3756,
+      "band_width_abs": 1.8424,
+      "band_width_pct": 0.1257,
+      "upside_risk_pct": 0.0628
+    },
+    {
+      "month": "2026-05",
+      "price_median": 14.6494,
+      "price_lower": 13.6195,
+      "price_upper": 15.6793,
+      "price_p10": 13.8467,
+      "price_p90": 15.452,
+      "band_width_abs": 2.0598,
+      "band_width_pct": 0.1406,
+      "upside_risk_pct": 0.0703
+    },
+    {
+      "month": "2026-06",
+      "price_median": 14.7283,
+      "price_lower": 13.6001,
+      "price_upper": 15.8566,
+      "price_p10": 13.849,
+      "price_p90": 15.6076,
+      "band_width_abs": 2.2565,
+      "band_width_pct": 0.1532,
+      "upside_risk_pct": 0.0766
+    }
+  ],
+  "drivers": [
+    {
+      "name": "EU food inflation",
+      "raw_name": "EU food inflation",
+      "importance": 85.0,
+      "direction": 1.0,
+      "relevance_score": 0.5,
+      "visible": true
+    },
+    {
+      "name": "Energy costs",
+      "raw_name": "Energy costs",
+      "importance": 60.0,
+      "direction": 0.5,
+      "relevance_score": 0.5,
+      "visible": true
+    },
+    {
+      "name": "Supply chain",
+      "raw_name": "Supply chain",
+      "importance": 45.0,
+      "direction": 0.3,
+      "relevance_score": 0.5,
+      "visible": true
+    }
+  ],
+  "warnings": []
+}

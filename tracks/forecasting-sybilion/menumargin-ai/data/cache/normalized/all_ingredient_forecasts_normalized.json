@@ -1,0 +1,1758 @@
+{
+  "butter": {
+    "ingredient": "butter",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12",
+    "current_price_eur_kg": 8.5,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 7.9962,
+        "price_lower": 7.7166,
+        "price_upper": 8.2759,
+        "price_p10": 7.7783,
+        "price_p90": 8.2142,
+        "band_width_abs": 0.5593,
+        "band_width_pct": 0.0699,
+        "upside_risk_pct": 0.035
+      },
+      {
+        "month": "2026-02",
+        "price_median": 7.9239,
+        "price_lower": 7.5284,
+        "price_upper": 8.3194,
+        "price_p10": 7.6157,
+        "price_p90": 8.2321,
+        "band_width_abs": 0.791,
+        "band_width_pct": 0.0998,
+        "upside_risk_pct": 0.0499
+      },
+      {
+        "month": "2026-03",
+        "price_median": 7.8554,
+        "price_lower": 7.3711,
+        "price_upper": 8.3398,
+        "price_p10": 7.478,
+        "price_p90": 8.2329,
+        "band_width_abs": 0.9687,
+        "band_width_pct": 0.1233,
+        "upside_risk_pct": 0.0617
+      },
+      {
+        "month": "2026-04",
+        "price_median": 7.8189,
+        "price_lower": 7.2596,
+        "price_upper": 8.3782,
+        "price_p10": 7.383,
+        "price_p90": 8.2548,
+        "band_width_abs": 1.1186,
+        "band_width_pct": 0.1431,
+        "upside_risk_pct": 0.0715
+      },
+      {
+        "month": "2026-05",
+        "price_median": 7.7126,
+        "price_lower": 7.0872,
+        "price_upper": 8.3379,
+        "price_p10": 7.2252,
+        "price_p90": 8.1999,
+        "band_width_abs": 1.2507,
+        "band_width_pct": 0.1622,
+        "upside_risk_pct": 0.0811
+      },
+      {
+        "month": "2026-06",
+        "price_median": 7.5833,
+        "price_lower": 6.8983,
+        "price_upper": 8.2683,
+        "price_p10": 7.0494,
+        "price_p90": 8.1171,
+        "band_width_abs": 1.37,
+        "band_width_pct": 0.1807,
+        "upside_risk_pct": 0.0903
+      }
+    ],
+    "drivers": [
+      {
+        "name": "EU food inflation",
+        "raw_name": "EU food inflation",
+        "importance": 85.0,
+        "direction": -1.0,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Energy costs",
+        "raw_name": "Energy costs",
+        "importance": 60.0,
+        "direction": 0.5,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Supply chain",
+        "raw_name": "Supply chain",
+        "importance": 45.0,
+        "direction": 0.3,
+        "relevance_score": 0.5,
+        "visible": true
+      }
+    ],
+    "warnings": []
+  },
+  "cheese": {
+    "ingredient": "cheese",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12-01",
+    "current_price_eur_kg": 18.5,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 18.396,
+        "price_lower": 18.2787,
+        "price_upper": 18.514,
+        "price_p10": 18.3449,
+        "price_p90": 18.4473,
+        "band_width_abs": 0.2353,
+        "band_width_pct": 0.0128,
+        "upside_risk_pct": 0.0064
+      },
+      {
+        "month": "2026-02",
+        "price_median": 18.3728,
+        "price_lower": 18.2585,
+        "price_upper": 18.4877,
+        "price_p10": 18.3139,
+        "price_p90": 18.4319,
+        "band_width_abs": 0.2292,
+        "band_width_pct": 0.0125,
+        "upside_risk_pct": 0.0063
+      },
+      {
+        "month": "2026-03",
+        "price_median": 18.3557,
+        "price_lower": 18.2102,
+        "price_upper": 18.5024,
+        "price_p10": 18.2692,
+        "price_p90": 18.4427,
+        "band_width_abs": 0.2922,
+        "band_width_pct": 0.0159,
+        "upside_risk_pct": 0.008
+      },
+      {
+        "month": "2026-04",
+        "price_median": 18.3415,
+        "price_lower": 18.1642,
+        "price_upper": 18.5205,
+        "price_p10": 18.2166,
+        "price_p90": 18.4672,
+        "band_width_abs": 0.3563,
+        "band_width_pct": 0.0194,
+        "upside_risk_pct": 0.0098
+      },
+      {
+        "month": "2026-05",
+        "price_median": 18.3294,
+        "price_lower": 18.1112,
+        "price_upper": 18.5503,
+        "price_p10": 18.1675,
+        "price_p90": 18.4929,
+        "band_width_abs": 0.4391,
+        "band_width_pct": 0.024,
+        "upside_risk_pct": 0.0121
+      },
+      {
+        "month": "2026-06",
+        "price_median": 18.3186,
+        "price_lower": 18.0691,
+        "price_upper": 18.5715,
+        "price_p10": 18.1208,
+        "price_p90": 18.5185,
+        "band_width_abs": 0.5024,
+        "band_width_pct": 0.0274,
+        "upside_risk_pct": 0.0138
+      }
+    ],
+    "drivers": [
+      {
+        "name": "Milk, Cheese And Eggs import price index \u2014 Italy",
+        "raw_name": "Food price monitoring tool, Index, 2015=100, Import price index, Milk, cheese and eggs, Italy in Italy",
+        "importance": 100.0,
+        "direction": 0.951,
+        "relevance_score": 1.0,
+        "visible": true
+      },
+      {
+        "name": "Global economic risk \u2014 France",
+        "raw_name": "Global risk - France",
+        "importance": 99.7,
+        "direction": 0.207,
+        "relevance_score": 0.1,
+        "visible": false
+      },
+      {
+        "name": "Labour market \u2014 United States Of America",
+        "raw_name": "Labour market - United States of America",
+        "importance": 98.0,
+        "direction": 0.799,
+        "relevance_score": 0.0,
+        "visible": false
+      },
+      {
+        "name": "Manufacture Of Textiles And Wearing Apparel producer prices \u2014 Ireland",
+        "raw_name": "Domestic producer prices \u2013 Manufacture of textiles and wearing apparel in Ireland",
+        "importance": 96.66,
+        "direction": 0.041,
+        "relevance_score": 0.0,
+        "visible": false
+      },
+      {
+        "name": "Population \u2014 Europe",
+        "raw_name": "Population - Europe",
+        "importance": 93.26,
+        "direction": 0.507,
+        "relevance_score": 0.0,
+        "visible": false
+      }
+    ],
+    "warnings": [
+      "Confidence interval is narrow (avg \u00b11.9%). This reflects smooth index-based inputs; real wholesale price volatility may be higher.",
+      "Median forecast is nearly flat (-0.4% over 6 months). Margin risk comes primarily from your current cost baseline and scenario assumptions."
+    ]
+  },
+  "chicken": {
+    "ingredient": "chicken",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12",
+    "current_price_eur_kg": 7.5,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 7.6255,
+        "price_lower": 7.3787,
+        "price_upper": 7.8722,
+        "price_p10": 7.4332,
+        "price_p90": 7.8178,
+        "band_width_abs": 0.4935,
+        "band_width_pct": 0.0647,
+        "upside_risk_pct": 0.0324
+      },
+      {
+        "month": "2026-02",
+        "price_median": 7.6194,
+        "price_lower": 7.2704,
+        "price_upper": 7.9683,
+        "price_p10": 7.3474,
+        "price_p90": 7.8913,
+        "band_width_abs": 0.6979,
+        "band_width_pct": 0.0916,
+        "upside_risk_pct": 0.0458
+      },
+      {
+        "month": "2026-03",
+        "price_median": 7.602,
+        "price_lower": 7.1746,
+        "price_upper": 8.0293,
+        "price_p10": 7.2689,
+        "price_p90": 7.935,
+        "band_width_abs": 0.8547,
+        "band_width_pct": 0.1124,
+        "upside_risk_pct": 0.0562
+      },
+      {
+        "month": "2026-04",
+        "price_median": 7.606,
+        "price_lower": 7.1125,
+        "price_upper": 8.0995,
+        "price_p10": 7.2214,
+        "price_p90": 7.9906,
+        "band_width_abs": 0.987,
+        "band_width_pct": 0.1298,
+        "upside_risk_pct": 0.0649
+      },
+      {
+        "month": "2026-05",
+        "price_median": 7.6677,
+        "price_lower": 7.1159,
+        "price_upper": 8.2194,
+        "price_p10": 7.2377,
+        "price_p90": 8.0977,
+        "band_width_abs": 1.1035,
+        "band_width_pct": 0.1439,
+        "upside_risk_pct": 0.072
+      },
+      {
+        "month": "2026-06",
+        "price_median": 7.722,
+        "price_lower": 7.1176,
+        "price_upper": 8.3264,
+        "price_p10": 7.251,
+        "price_p90": 8.1931,
+        "band_width_abs": 1.2088,
+        "band_width_pct": 0.1565,
+        "upside_risk_pct": 0.0783
+      }
+    ],
+    "drivers": [
+      {
+        "name": "EU food inflation",
+        "raw_name": "EU food inflation",
+        "importance": 85.0,
+        "direction": 1.0,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Energy costs",
+        "raw_name": "Energy costs",
+        "importance": 60.0,
+        "direction": 0.5,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Supply chain",
+        "raw_name": "Supply chain",
+        "importance": 45.0,
+        "direction": 0.3,
+        "relevance_score": 0.5,
+        "visible": true
+      }
+    ],
+    "warnings": [
+      "Median forecast is nearly flat (+1.3% over 6 months). Margin risk comes primarily from your current cost baseline and scenario assumptions."
+    ]
+  },
+  "coffee": {
+    "ingredient": "coffee",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12",
+    "current_price_eur_kg": 18.0,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 19.3906,
+        "price_lower": 18.7984,
+        "price_upper": 19.9828,
+        "price_p10": 18.9291,
+        "price_p90": 19.8522,
+        "band_width_abs": 1.1844,
+        "band_width_pct": 0.0611,
+        "upside_risk_pct": 0.0305
+      },
+      {
+        "month": "2026-02",
+        "price_median": 19.6512,
+        "price_lower": 18.8137,
+        "price_upper": 20.4887,
+        "price_p10": 18.9985,
+        "price_p90": 20.3039,
+        "band_width_abs": 1.675,
+        "band_width_pct": 0.0852,
+        "upside_risk_pct": 0.0426
+      },
+      {
+        "month": "2026-03",
+        "price_median": 19.8322,
+        "price_lower": 18.8065,
+        "price_upper": 20.8579,
+        "price_p10": 19.0328,
+        "price_p90": 20.6316,
+        "band_width_abs": 2.0514,
+        "band_width_pct": 0.1034,
+        "upside_risk_pct": 0.0517
+      },
+      {
+        "month": "2026-04",
+        "price_median": 20.0034,
+        "price_lower": 18.819,
+        "price_upper": 21.1878,
+        "price_p10": 19.0804,
+        "price_p90": 20.9265,
+        "band_width_abs": 2.3688,
+        "band_width_pct": 0.1184,
+        "upside_risk_pct": 0.0592
+      },
+      {
+        "month": "2026-05",
+        "price_median": 20.2276,
+        "price_lower": 18.9034,
+        "price_upper": 21.5518,
+        "price_p10": 19.1956,
+        "price_p90": 21.2596,
+        "band_width_abs": 2.6484,
+        "band_width_pct": 0.1309,
+        "upside_risk_pct": 0.0655
+      },
+      {
+        "month": "2026-06",
+        "price_median": 20.4094,
+        "price_lower": 18.9588,
+        "price_upper": 21.86,
+        "price_p10": 19.2789,
+        "price_p90": 21.5399,
+        "band_width_abs": 2.9012,
+        "band_width_pct": 0.1422,
+        "upside_risk_pct": 0.0711
+      }
+    ],
+    "drivers": [
+      {
+        "name": "EU food inflation",
+        "raw_name": "EU food inflation",
+        "importance": 85.0,
+        "direction": 1.0,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Energy costs",
+        "raw_name": "Energy costs",
+        "importance": 60.0,
+        "direction": 0.5,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Supply chain",
+        "raw_name": "Supply chain",
+        "importance": 45.0,
+        "direction": 0.3,
+        "relevance_score": 0.5,
+        "visible": true
+      }
+    ],
+    "warnings": []
+  },
+  "cream": {
+    "ingredient": "cream",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12",
+    "current_price_eur_kg": 6.0,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 6.0186,
+        "price_lower": 5.8212,
+        "price_upper": 6.216,
+        "price_p10": 5.8648,
+        "price_p90": 6.1725,
+        "band_width_abs": 0.3948,
+        "band_width_pct": 0.0656,
+        "upside_risk_pct": 0.0328
+      },
+      {
+        "month": "2026-02",
+        "price_median": 6.0019,
+        "price_lower": 5.7227,
+        "price_upper": 6.281,
+        "price_p10": 5.7843,
+        "price_p90": 6.2194,
+        "band_width_abs": 0.5583,
+        "band_width_pct": 0.093,
+        "upside_risk_pct": 0.0465
+      },
+      {
+        "month": "2026-03",
+        "price_median": 6.0046,
+        "price_lower": 5.6627,
+        "price_upper": 6.3465,
+        "price_p10": 5.7381,
+        "price_p90": 6.2711,
+        "band_width_abs": 0.6838,
+        "band_width_pct": 0.1139,
+        "upside_risk_pct": 0.0569
+      },
+      {
+        "month": "2026-04",
+        "price_median": 6.0158,
+        "price_lower": 5.621,
+        "price_upper": 6.4106,
+        "price_p10": 5.7081,
+        "price_p90": 6.3235,
+        "band_width_abs": 0.7896,
+        "band_width_pct": 0.1313,
+        "upside_risk_pct": 0.0656
+      },
+      {
+        "month": "2026-05",
+        "price_median": 6.0205,
+        "price_lower": 5.5791,
+        "price_upper": 6.4619,
+        "price_p10": 5.6766,
+        "price_p90": 6.3645,
+        "band_width_abs": 0.8828,
+        "band_width_pct": 0.1466,
+        "upside_risk_pct": 0.0733
+      },
+      {
+        "month": "2026-06",
+        "price_median": 6.0497,
+        "price_lower": 5.5662,
+        "price_upper": 6.5332,
+        "price_p10": 5.6729,
+        "price_p90": 6.4265,
+        "band_width_abs": 0.967,
+        "band_width_pct": 0.1598,
+        "upside_risk_pct": 0.0799
+      }
+    ],
+    "drivers": [
+      {
+        "name": "EU food inflation",
+        "raw_name": "EU food inflation",
+        "importance": 85.0,
+        "direction": 1.0,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Energy costs",
+        "raw_name": "Energy costs",
+        "importance": 60.0,
+        "direction": 0.5,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Supply chain",
+        "raw_name": "Supply chain",
+        "importance": 45.0,
+        "direction": 0.3,
+        "relevance_score": 0.5,
+        "visible": true
+      }
+    ],
+    "warnings": [
+      "Median forecast is nearly flat (+0.5% over 6 months). Margin risk comes primarily from your current cost baseline and scenario assumptions."
+    ]
+  },
+  "eggs": {
+    "ingredient": "eggs",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12-01",
+    "current_price_eur_kg": 9.5,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 9.4368,
+        "price_lower": 9.2856,
+        "price_upper": 9.5905,
+        "price_p10": 9.2872,
+        "price_p90": 9.5889,
+        "band_width_abs": 0.3049,
+        "band_width_pct": 0.0323,
+        "upside_risk_pct": 0.0163
+      },
+      {
+        "month": "2026-02",
+        "price_median": 9.4656,
+        "price_lower": 9.2356,
+        "price_upper": 9.7013,
+        "price_p10": 9.2465,
+        "price_p90": 9.6898,
+        "band_width_abs": 0.4657,
+        "band_width_pct": 0.0492,
+        "upside_risk_pct": 0.0249
+      },
+      {
+        "month": "2026-03",
+        "price_median": 9.4917,
+        "price_lower": 9.1926,
+        "price_upper": 9.8004,
+        "price_p10": 9.2051,
+        "price_p90": 9.7871,
+        "band_width_abs": 0.6078,
+        "band_width_pct": 0.064,
+        "upside_risk_pct": 0.0325
+      },
+      {
+        "month": "2026-04",
+        "price_median": 9.5163,
+        "price_lower": 9.1317,
+        "price_upper": 9.9171,
+        "price_p10": 9.169,
+        "price_p90": 9.8768,
+        "band_width_abs": 0.7854,
+        "band_width_pct": 0.0825,
+        "upside_risk_pct": 0.0421
+      },
+      {
+        "month": "2026-05",
+        "price_median": 9.5408,
+        "price_lower": 9.0482,
+        "price_upper": 10.0601,
+        "price_p10": 9.1295,
+        "price_p90": 9.9706,
+        "band_width_abs": 1.0119,
+        "band_width_pct": 0.1061,
+        "upside_risk_pct": 0.0544
+      },
+      {
+        "month": "2026-06",
+        "price_median": 9.5654,
+        "price_lower": 8.8514,
+        "price_upper": 10.3368,
+        "price_p10": 9.0536,
+        "price_p90": 10.106,
+        "band_width_abs": 1.4854,
+        "band_width_pct": 0.1553,
+        "upside_risk_pct": 0.0806
+      }
+    ],
+    "drivers": [
+      {
+        "name": "Consumer price index: First Published Data (Monthly Index And Annual Rate \u2014 Chan",
+        "raw_name": "HICP - first published data (monthly index and annual rate of change), Index, 2015=100, Eggs, Final, Portugal in Portugal",
+        "importance": 43.36,
+        "direction": 0.974,
+        "relevance_score": 0.633,
+        "visible": true
+      },
+      {
+        "name": "Energy - United States of America",
+        "raw_name": "Energy - United States of America",
+        "importance": 23.36,
+        "direction": 0.83,
+        "relevance_score": 0.333,
+        "visible": true
+      },
+      {
+        "name": "Price per kg of Germany exports of Prepared or preserved fish via Road",
+        "raw_name": "Price per kg of Germany exports of Prepared or preserved fish via Road",
+        "importance": 100.0,
+        "direction": -0.101,
+        "relevance_score": 0.1,
+        "visible": false
+      },
+      {
+        "name": "Market Indices - World",
+        "raw_name": "Market Indices - World",
+        "importance": 68.7,
+        "direction": 0.062,
+        "relevance_score": 0.1,
+        "visible": false
+      },
+      {
+        "name": "Crude oil production in United States of America",
+        "raw_name": "Crude oil production in United States of America",
+        "importance": 64.52,
+        "direction": 0.915,
+        "relevance_score": 0.1,
+        "visible": false
+      }
+    ],
+    "warnings": [
+      "Median forecast is nearly flat (+1.4% over 6 months). Margin risk comes primarily from your current cost baseline and scenario assumptions."
+    ]
+  },
+  "fish": {
+    "ingredient": "fish",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12",
+    "current_price_eur_kg": 14.0,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 14.3334,
+        "price_lower": 13.8728,
+        "price_upper": 14.794,
+        "price_p10": 13.9744,
+        "price_p90": 14.6923,
+        "band_width_abs": 0.9212,
+        "band_width_pct": 0.0643,
+        "upside_risk_pct": 0.0321
+      },
+      {
+        "month": "2026-02",
+        "price_median": 14.3696,
+        "price_lower": 13.7182,
+        "price_upper": 15.021,
+        "price_p10": 13.862,
+        "price_p90": 14.8773,
+        "band_width_abs": 1.3028,
+        "band_width_pct": 0.0907,
+        "upside_risk_pct": 0.0453
+      },
+      {
+        "month": "2026-03",
+        "price_median": 14.5561,
+        "price_lower": 13.7584,
+        "price_upper": 15.3539,
+        "price_p10": 13.9344,
+        "price_p90": 15.1779,
+        "band_width_abs": 1.5955,
+        "band_width_pct": 0.1096,
+        "upside_risk_pct": 0.0548
+      },
+      {
+        "month": "2026-04",
+        "price_median": 14.6577,
+        "price_lower": 13.7365,
+        "price_upper": 15.5789,
+        "price_p10": 13.9398,
+        "price_p90": 15.3756,
+        "band_width_abs": 1.8424,
+        "band_width_pct": 0.1257,
+        "upside_risk_pct": 0.0628
+      },
+      {
+        "month": "2026-05",
+        "price_median": 14.6494,
+        "price_lower": 13.6195,
+        "price_upper": 15.6793,
+        "price_p10": 13.8467,
+        "price_p90": 15.452,
+        "band_width_abs": 2.0598,
+        "band_width_pct": 0.1406,
+        "upside_risk_pct": 0.0703
+      },
+      {
+        "month": "2026-06",
+        "price_median": 14.7283,
+        "price_lower": 13.6001,
+        "price_upper": 15.8566,
+        "price_p10": 13.849,
+        "price_p90": 15.6076,
+        "band_width_abs": 2.2565,
+        "band_width_pct": 0.1532,
+        "upside_risk_pct": 0.0766
+      }
+    ],
+    "drivers": [
+      {
+        "name": "EU food inflation",
+        "raw_name": "EU food inflation",
+        "importance": 85.0,
+        "direction": 1.0,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Energy costs",
+        "raw_name": "Energy costs",
+        "importance": 60.0,
+        "direction": 0.5,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Supply chain",
+        "raw_name": "Supply chain",
+        "importance": 45.0,
+        "direction": 0.3,
+        "relevance_score": 0.5,
+        "visible": true
+      }
+    ],
+    "warnings": []
+  },
+  "flour": {
+    "ingredient": "flour",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12-01",
+    "current_price_eur_kg": 2.8,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 2.7963,
+        "price_lower": 2.7703,
+        "price_upper": 2.8225,
+        "price_p10": 2.7766,
+        "price_p90": 2.8161,
+        "band_width_abs": 0.0522,
+        "band_width_pct": 0.0187,
+        "upside_risk_pct": 0.0094
+      },
+      {
+        "month": "2026-02",
+        "price_median": 2.7843,
+        "price_lower": 2.7383,
+        "price_upper": 2.8311,
+        "price_p10": 2.746,
+        "price_p90": 2.8232,
+        "band_width_abs": 0.0928,
+        "band_width_pct": 0.0333,
+        "upside_risk_pct": 0.0168
+      },
+      {
+        "month": "2026-03",
+        "price_median": 2.772,
+        "price_lower": 2.7022,
+        "price_upper": 2.8437,
+        "price_p10": 2.7122,
+        "price_p90": 2.8333,
+        "band_width_abs": 0.1415,
+        "band_width_pct": 0.051,
+        "upside_risk_pct": 0.0259
+      },
+      {
+        "month": "2026-04",
+        "price_median": 2.7596,
+        "price_lower": 2.6614,
+        "price_upper": 2.8615,
+        "price_p10": 2.6816,
+        "price_p90": 2.8399,
+        "band_width_abs": 0.2001,
+        "band_width_pct": 0.0725,
+        "upside_risk_pct": 0.0369
+      },
+      {
+        "month": "2026-05",
+        "price_median": 2.7472,
+        "price_lower": 2.6387,
+        "price_upper": 2.8601,
+        "price_p10": 2.6591,
+        "price_p90": 2.8382,
+        "band_width_abs": 0.2214,
+        "band_width_pct": 0.0806,
+        "upside_risk_pct": 0.0411
+      },
+      {
+        "month": "2026-06",
+        "price_median": 2.7361,
+        "price_lower": 2.6207,
+        "price_upper": 2.8565,
+        "price_p10": 2.6429,
+        "price_p90": 2.8325,
+        "band_width_abs": 0.2358,
+        "band_width_pct": 0.0862,
+        "upside_risk_pct": 0.044
+      }
+    ],
+    "drivers": [
+      {
+        "name": "Food price monitoring tool, Index, 2015=100, Producer price index, Bread\u2026",
+        "raw_name": "Food price monitoring tool, Index, 2015=100, Producer price index, Bread and cereals, European Union - 27 countries (from 2020) in Europe",
+        "importance": 85.79,
+        "direction": 0.987,
+        "relevance_score": 1.0,
+        "visible": true
+      },
+      {
+        "name": "Energy - Belgium",
+        "raw_name": "Energy - Belgium",
+        "importance": 15.68,
+        "direction": 0.688,
+        "relevance_score": 0.333,
+        "visible": true
+      },
+      {
+        "name": "CPI by expenditure category and country",
+        "raw_name": "CPI by expenditure category and country",
+        "importance": 98.17,
+        "direction": 0.624,
+        "relevance_score": 0.1,
+        "visible": false
+      },
+      {
+        "name": "CPI by expenditure category and country",
+        "raw_name": "CPI by expenditure category and country",
+        "importance": 48.25,
+        "direction": 0.598,
+        "relevance_score": 0.1,
+        "visible": false
+      },
+      {
+        "name": "Population \u2014 Cuba",
+        "raw_name": "Population - Cuba",
+        "importance": 100.0,
+        "direction": 0.178,
+        "relevance_score": 0.0,
+        "visible": false
+      }
+    ],
+    "warnings": []
+  },
+  "milk": {
+    "ingredient": "milk",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12",
+    "current_price_eur_kg": 1.6,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 1.6255,
+        "price_lower": 1.5729,
+        "price_upper": 1.6781,
+        "price_p10": 1.5845,
+        "price_p90": 1.6665,
+        "band_width_abs": 0.1052,
+        "band_width_pct": 0.0647,
+        "upside_risk_pct": 0.0324
+      },
+      {
+        "month": "2026-02",
+        "price_median": 1.6291,
+        "price_lower": 1.5547,
+        "price_upper": 1.7036,
+        "price_p10": 1.5711,
+        "price_p90": 1.6871,
+        "band_width_abs": 0.1489,
+        "band_width_pct": 0.0914,
+        "upside_risk_pct": 0.0457
+      },
+      {
+        "month": "2026-03",
+        "price_median": 1.6355,
+        "price_lower": 1.5443,
+        "price_upper": 1.7266,
+        "price_p10": 1.5644,
+        "price_p90": 1.7065,
+        "band_width_abs": 0.1823,
+        "band_width_pct": 0.1115,
+        "upside_risk_pct": 0.0557
+      },
+      {
+        "month": "2026-04",
+        "price_median": 1.6476,
+        "price_lower": 1.5423,
+        "price_upper": 1.7529,
+        "price_p10": 1.5655,
+        "price_p90": 1.7296,
+        "band_width_abs": 0.2106,
+        "band_width_pct": 0.1278,
+        "upside_risk_pct": 0.0639
+      },
+      {
+        "month": "2026-05",
+        "price_median": 1.6459,
+        "price_lower": 1.5282,
+        "price_upper": 1.7636,
+        "price_p10": 1.5542,
+        "price_p90": 1.7377,
+        "band_width_abs": 0.2354,
+        "band_width_pct": 0.143,
+        "upside_risk_pct": 0.0715
+      },
+      {
+        "month": "2026-06",
+        "price_median": 1.671,
+        "price_lower": 1.542,
+        "price_upper": 1.7999,
+        "price_p10": 1.5705,
+        "price_p90": 1.7715,
+        "band_width_abs": 0.2579,
+        "band_width_pct": 0.1543,
+        "upside_risk_pct": 0.0771
+      }
+    ],
+    "drivers": [
+      {
+        "name": "EU food inflation",
+        "raw_name": "EU food inflation",
+        "importance": 85.0,
+        "direction": 1.0,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Energy costs",
+        "raw_name": "Energy costs",
+        "importance": 60.0,
+        "direction": 0.5,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Supply chain",
+        "raw_name": "Supply chain",
+        "importance": 45.0,
+        "direction": 0.3,
+        "relevance_score": 0.5,
+        "visible": true
+      }
+    ],
+    "warnings": []
+  },
+  "olive_oil": {
+    "ingredient": "olive_oil",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12-01",
+    "current_price_eur_kg": 19.0,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 18.7123,
+        "price_lower": 17.4216,
+        "price_upper": 20.0979,
+        "price_p10": 17.7693,
+        "price_p90": 19.7049,
+        "band_width_abs": 2.6763,
+        "band_width_pct": 0.143,
+        "upside_risk_pct": 0.074
+      },
+      {
+        "month": "2026-02",
+        "price_median": 18.3882,
+        "price_lower": 16.4149,
+        "price_upper": 20.5968,
+        "price_p10": 17.007,
+        "price_p90": 19.8806,
+        "band_width_abs": 4.1819,
+        "band_width_pct": 0.2274,
+        "upside_risk_pct": 0.1201
+      },
+      {
+        "month": "2026-03",
+        "price_median": 18.0641,
+        "price_lower": 15.8477,
+        "price_upper": 20.588,
+        "price_p10": 16.4661,
+        "price_p90": 19.816,
+        "band_width_abs": 4.7403,
+        "band_width_pct": 0.2624,
+        "upside_risk_pct": 0.1397
+      },
+      {
+        "month": "2026-04",
+        "price_median": 17.7381,
+        "price_lower": 15.0883,
+        "price_upper": 20.8491,
+        "price_p10": 15.7767,
+        "price_p90": 19.9412,
+        "band_width_abs": 5.7608,
+        "band_width_pct": 0.3248,
+        "upside_risk_pct": 0.1754
+      },
+      {
+        "month": "2026-05",
+        "price_median": 17.4054,
+        "price_lower": 13.8536,
+        "price_upper": 21.8593,
+        "price_p10": 14.6401,
+        "price_p90": 20.6884,
+        "band_width_abs": 8.0057,
+        "band_width_pct": 0.46,
+        "upside_risk_pct": 0.2559
+      },
+      {
+        "month": "2026-06",
+        "price_median": 17.0546,
+        "price_lower": 11.8603,
+        "price_upper": 24.4987,
+        "price_p10": 13.0624,
+        "price_p90": 22.2547,
+        "band_width_abs": 12.6384,
+        "band_width_pct": 0.7411,
+        "upside_risk_pct": 0.4365
+      }
+    ],
+    "drivers": [
+      {
+        "name": "Consumer price index: Olive Oil \u2014 Europe",
+        "raw_name": "HICP \u2013 Olive oil in Europe",
+        "importance": 98.31,
+        "direction": -0.049,
+        "relevance_score": 1.0,
+        "visible": true
+      },
+      {
+        "name": "Consumer price index: Olive Oil \u2014 Spain",
+        "raw_name": "HICP \u2013 Olive oil in Spain",
+        "importance": 97.72,
+        "direction": 0.275,
+        "relevance_score": 1.0,
+        "visible": true
+      },
+      {
+        "name": "Turkey exports: Plastics \u2014 road",
+        "raw_name": "Turkey exports of Plastics (qty, Weight in kilograms) via Road",
+        "importance": 100.0,
+        "direction": -0.322,
+        "relevance_score": 0.1,
+        "visible": false
+      },
+      {
+        "name": "Equities - World",
+        "raw_name": "Equities - World",
+        "importance": 94.13,
+        "direction": 0.009,
+        "relevance_score": 0.1,
+        "visible": false
+      },
+      {
+        "name": "Labour market \u2014 United States Of America",
+        "raw_name": "Labour market - United States of America",
+        "importance": 94.62,
+        "direction": 0.701,
+        "relevance_score": 0.0,
+        "visible": false
+      }
+    ],
+    "warnings": []
+  },
+  "pasta": {
+    "ingredient": "pasta",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12-01",
+    "current_price_eur_kg": 4.2,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 4.201,
+        "price_lower": 4.165,
+        "price_upper": 4.2374,
+        "price_p10": 4.1924,
+        "price_p90": 4.2097,
+        "band_width_abs": 0.0724,
+        "band_width_pct": 0.0172,
+        "upside_risk_pct": 0.0087
+      },
+      {
+        "month": "2026-02",
+        "price_median": 4.1965,
+        "price_lower": 4.151,
+        "price_upper": 4.2425,
+        "price_p10": 4.1786,
+        "price_p90": 4.2144,
+        "band_width_abs": 0.0915,
+        "band_width_pct": 0.0218,
+        "upside_risk_pct": 0.011
+      },
+      {
+        "month": "2026-03",
+        "price_median": 4.1916,
+        "price_lower": 4.1323,
+        "price_upper": 4.2519,
+        "price_p10": 4.1647,
+        "price_p90": 4.2187,
+        "band_width_abs": 0.1196,
+        "band_width_pct": 0.0285,
+        "upside_risk_pct": 0.0144
+      },
+      {
+        "month": "2026-04",
+        "price_median": 4.1867,
+        "price_lower": 4.1118,
+        "price_upper": 4.2629,
+        "price_p10": 4.152,
+        "price_p90": 4.2217,
+        "band_width_abs": 0.1511,
+        "band_width_pct": 0.0361,
+        "upside_risk_pct": 0.0182
+      },
+      {
+        "month": "2026-05",
+        "price_median": 4.1816,
+        "price_lower": 4.0915,
+        "price_upper": 4.2736,
+        "price_p10": 4.1331,
+        "price_p90": 4.2306,
+        "band_width_abs": 0.1821,
+        "band_width_pct": 0.0435,
+        "upside_risk_pct": 0.022
+      },
+      {
+        "month": "2026-06",
+        "price_median": 4.1764,
+        "price_lower": 4.0642,
+        "price_upper": 4.2916,
+        "price_p10": 4.1077,
+        "price_p90": 4.2462,
+        "band_width_abs": 0.2274,
+        "band_width_pct": 0.0544,
+        "upside_risk_pct": 0.0276
+      }
+    ],
+    "drivers": [
+      {
+        "name": "Income, consumption and living conditions - United States of America",
+        "raw_name": "Income, consumption and living conditions - United States of America",
+        "importance": 100.0,
+        "direction": -0.014,
+        "relevance_score": 0.1,
+        "visible": false
+      },
+      {
+        "name": "EU27 (from 2020) trade \u2013 Imports (Growth rate M/M-1 of the seasonally an\u2026",
+        "raw_name": "EU27 (from 2020) trade \u2013 Imports (Growth rate M/M-1 of the seasonally and calendar adjusted trade value, South Africa, Animal and vegetable oils, fats and waxes, European Union - 27 countries (from 2020)) in South Africa",
+        "importance": 97.3,
+        "direction": -0.029,
+        "relevance_score": 0.1,
+        "visible": false
+      },
+      {
+        "name": "EU27 (from 2020) trade \u2013 Imports (Growth rate M/M-12 of the unit-value i\u2026",
+        "raw_name": "EU27 (from 2020) trade \u2013 Imports (Growth rate M/M-12 of the unit-value indices, Africa, Animal and vegetable oils, fats and waxes, European Union - 27 countries (from 2020)) in Africa",
+        "importance": 75.16,
+        "direction": 0.07,
+        "relevance_score": 0.1,
+        "visible": false
+      },
+      {
+        "name": "Industry, manufacturing - United States of America",
+        "raw_name": "Industry, manufacturing - United States of America",
+        "importance": 72.45,
+        "direction": 0.791,
+        "relevance_score": 0.1,
+        "visible": false
+      },
+      {
+        "name": "Labour market \u2014 United States Of America",
+        "raw_name": "Labour market - United States of America",
+        "importance": 97.92,
+        "direction": 0.752,
+        "relevance_score": 0.0,
+        "visible": false
+      }
+    ],
+    "warnings": [
+      "Median forecast is nearly flat (-0.6% over 6 months). Margin risk comes primarily from your current cost baseline and scenario assumptions.",
+      "No clearly relevant external drivers identified for this ingredient. Recommendation is based on forecast distribution and margin impact."
+    ]
+  },
+  "potatoes": {
+    "ingredient": "potatoes",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12",
+    "current_price_eur_kg": 1.8,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 1.6511,
+        "price_lower": 1.5919,
+        "price_upper": 1.7103,
+        "price_p10": 1.6049,
+        "price_p90": 1.6972,
+        "band_width_abs": 0.1184,
+        "band_width_pct": 0.0717,
+        "upside_risk_pct": 0.0359
+      },
+      {
+        "month": "2026-02",
+        "price_median": 1.6103,
+        "price_lower": 1.5266,
+        "price_upper": 1.6941,
+        "price_p10": 1.5451,
+        "price_p90": 1.6756,
+        "band_width_abs": 0.1675,
+        "band_width_pct": 0.104,
+        "upside_risk_pct": 0.052
+      },
+      {
+        "month": "2026-03",
+        "price_median": 1.5784,
+        "price_lower": 1.4758,
+        "price_upper": 1.681,
+        "price_p10": 1.4985,
+        "price_p90": 1.6583,
+        "band_width_abs": 0.2052,
+        "band_width_pct": 0.13,
+        "upside_risk_pct": 0.065
+      },
+      {
+        "month": "2026-04",
+        "price_median": 1.5745,
+        "price_lower": 1.4561,
+        "price_upper": 1.6929,
+        "price_p10": 1.4822,
+        "price_p90": 1.6668,
+        "band_width_abs": 0.2368,
+        "band_width_pct": 0.1504,
+        "upside_risk_pct": 0.0752
+      },
+      {
+        "month": "2026-05",
+        "price_median": 1.5497,
+        "price_lower": 1.4173,
+        "price_upper": 1.6821,
+        "price_p10": 1.4465,
+        "price_p90": 1.6529,
+        "band_width_abs": 0.2648,
+        "band_width_pct": 0.1709,
+        "upside_risk_pct": 0.0854
+      },
+      {
+        "month": "2026-06",
+        "price_median": 1.5438,
+        "price_lower": 1.3988,
+        "price_upper": 1.6889,
+        "price_p10": 1.4308,
+        "price_p90": 1.6569,
+        "band_width_abs": 0.2901,
+        "band_width_pct": 0.1879,
+        "upside_risk_pct": 0.094
+      }
+    ],
+    "drivers": [
+      {
+        "name": "EU food inflation",
+        "raw_name": "EU food inflation",
+        "importance": 85.0,
+        "direction": -1.0,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Energy costs",
+        "raw_name": "Energy costs",
+        "importance": 60.0,
+        "direction": 0.5,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Supply chain",
+        "raw_name": "Supply chain",
+        "importance": 45.0,
+        "direction": 0.3,
+        "relevance_score": 0.5,
+        "visible": true
+      }
+    ],
+    "warnings": []
+  },
+  "rice": {
+    "ingredient": "rice",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12",
+    "current_price_eur_kg": 2.8,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 2.8076,
+        "price_lower": 2.7154,
+        "price_upper": 2.8997,
+        "price_p10": 2.7358,
+        "price_p90": 2.8794,
+        "band_width_abs": 0.1843,
+        "band_width_pct": 0.0656,
+        "upside_risk_pct": 0.0328
+      },
+      {
+        "month": "2026-02",
+        "price_median": 2.8065,
+        "price_lower": 2.6762,
+        "price_upper": 2.9368,
+        "price_p10": 2.705,
+        "price_p90": 2.908,
+        "band_width_abs": 0.2606,
+        "band_width_pct": 0.0929,
+        "upside_risk_pct": 0.0464
+      },
+      {
+        "month": "2026-03",
+        "price_median": 2.8164,
+        "price_lower": 2.6569,
+        "price_upper": 2.976,
+        "price_p10": 2.6921,
+        "price_p90": 2.9408,
+        "band_width_abs": 0.3191,
+        "band_width_pct": 0.1133,
+        "upside_risk_pct": 0.0567
+      },
+      {
+        "month": "2026-04",
+        "price_median": 2.7896,
+        "price_lower": 2.6054,
+        "price_upper": 2.9739,
+        "price_p10": 2.646,
+        "price_p90": 2.9332,
+        "band_width_abs": 0.3685,
+        "band_width_pct": 0.1321,
+        "upside_risk_pct": 0.0661
+      },
+      {
+        "month": "2026-05",
+        "price_median": 2.8066,
+        "price_lower": 2.6006,
+        "price_upper": 3.0126,
+        "price_p10": 2.6461,
+        "price_p90": 2.9671,
+        "band_width_abs": 0.412,
+        "band_width_pct": 0.1468,
+        "upside_risk_pct": 0.0734
+      },
+      {
+        "month": "2026-06",
+        "price_median": 2.8188,
+        "price_lower": 2.5932,
+        "price_upper": 3.0445,
+        "price_p10": 2.643,
+        "price_p90": 2.9947,
+        "band_width_abs": 0.4513,
+        "band_width_pct": 0.1601,
+        "upside_risk_pct": 0.0801
+      }
+    ],
+    "drivers": [
+      {
+        "name": "EU food inflation",
+        "raw_name": "EU food inflation",
+        "importance": 85.0,
+        "direction": 1.0,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Energy costs",
+        "raw_name": "Energy costs",
+        "importance": 60.0,
+        "direction": 0.5,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Supply chain",
+        "raw_name": "Supply chain",
+        "importance": 45.0,
+        "direction": 0.3,
+        "relevance_score": 0.5,
+        "visible": true
+      }
+    ],
+    "warnings": [
+      "Median forecast is nearly flat (+0.4% over 6 months). Margin risk comes primarily from your current cost baseline and scenario assumptions."
+    ]
+  },
+  "sugar": {
+    "ingredient": "sugar",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12",
+    "current_price_eur_kg": 1.5,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 1.4844,
+        "price_lower": 1.4351,
+        "price_upper": 1.5338,
+        "price_p10": 1.4459,
+        "price_p90": 1.5229,
+        "band_width_abs": 0.0987,
+        "band_width_pct": 0.0665,
+        "upside_risk_pct": 0.0333
+      },
+      {
+        "month": "2026-02",
+        "price_median": 1.4673,
+        "price_lower": 1.3975,
+        "price_upper": 1.5371,
+        "price_p10": 1.4129,
+        "price_p90": 1.5217,
+        "band_width_abs": 0.1396,
+        "band_width_pct": 0.0951,
+        "upside_risk_pct": 0.0476
+      },
+      {
+        "month": "2026-03",
+        "price_median": 1.4799,
+        "price_lower": 1.3944,
+        "price_upper": 1.5654,
+        "price_p10": 1.4133,
+        "price_p90": 1.5465,
+        "band_width_abs": 0.171,
+        "band_width_pct": 0.1155,
+        "upside_risk_pct": 0.0578
+      },
+      {
+        "month": "2026-04",
+        "price_median": 1.4631,
+        "price_lower": 1.3644,
+        "price_upper": 1.5618,
+        "price_p10": 1.3862,
+        "price_p90": 1.54,
+        "band_width_abs": 0.1974,
+        "band_width_pct": 0.1349,
+        "upside_risk_pct": 0.0675
+      },
+      {
+        "month": "2026-05",
+        "price_median": 1.467,
+        "price_lower": 1.3567,
+        "price_upper": 1.5774,
+        "price_p10": 1.381,
+        "price_p90": 1.553,
+        "band_width_abs": 0.2207,
+        "band_width_pct": 0.1504,
+        "upside_risk_pct": 0.0753
+      },
+      {
+        "month": "2026-06",
+        "price_median": 1.4625,
+        "price_lower": 1.3416,
+        "price_upper": 1.5834,
+        "price_p10": 1.3683,
+        "price_p90": 1.5567,
+        "band_width_abs": 0.2418,
+        "band_width_pct": 0.1653,
+        "upside_risk_pct": 0.0827
+      }
+    ],
+    "drivers": [
+      {
+        "name": "EU food inflation",
+        "raw_name": "EU food inflation",
+        "importance": 85.0,
+        "direction": -1.0,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Energy costs",
+        "raw_name": "Energy costs",
+        "importance": 60.0,
+        "direction": 0.5,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Supply chain",
+        "raw_name": "Supply chain",
+        "importance": 45.0,
+        "direction": 0.3,
+        "relevance_score": 0.5,
+        "visible": true
+      }
+    ],
+    "warnings": [
+      "Median forecast is nearly flat (-1.5% over 6 months). Margin risk comes primarily from your current cost baseline and scenario assumptions."
+    ]
+  },
+  "tomatoes": {
+    "ingredient": "tomatoes",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12-01",
+    "current_price_eur_kg": 4.8,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 4.6765,
+        "price_lower": 4.253,
+        "price_upper": 5.1419,
+        "price_p10": 4.3184,
+        "price_p90": 5.0641,
+        "band_width_abs": 0.8889,
+        "band_width_pct": 0.1901,
+        "upside_risk_pct": 0.0995
+      },
+      {
+        "month": "2026-02",
+        "price_median": 4.7486,
+        "price_lower": 4.6002,
+        "price_upper": 4.9018,
+        "price_p10": 4.6431,
+        "price_p90": 4.8566,
+        "band_width_abs": 0.3016,
+        "band_width_pct": 0.0635,
+        "upside_risk_pct": 0.0323
+      },
+      {
+        "month": "2026-03",
+        "price_median": 4.728,
+        "price_lower": 4.6735,
+        "price_upper": 4.7831,
+        "price_p10": 4.6786,
+        "price_p90": 4.7779,
+        "band_width_abs": 0.1096,
+        "band_width_pct": 0.0232,
+        "upside_risk_pct": 0.0117
+      },
+      {
+        "month": "2026-04",
+        "price_median": 4.745,
+        "price_lower": 4.646,
+        "price_upper": 4.8461,
+        "price_p10": 4.6638,
+        "price_p90": 4.8275,
+        "band_width_abs": 0.2001,
+        "band_width_pct": 0.0422,
+        "upside_risk_pct": 0.0213
+      },
+      {
+        "month": "2026-05",
+        "price_median": 4.7235,
+        "price_lower": 4.5568,
+        "price_upper": 4.8963,
+        "price_p10": 4.6141,
+        "price_p90": 4.8355,
+        "band_width_abs": 0.3395,
+        "band_width_pct": 0.0719,
+        "upside_risk_pct": 0.0366
+      },
+      {
+        "month": "2026-06",
+        "price_median": 4.7106,
+        "price_lower": 4.3884,
+        "price_upper": 5.0562,
+        "price_p10": 4.4158,
+        "price_p90": 5.0249,
+        "band_width_abs": 0.6678,
+        "band_width_pct": 0.1418,
+        "upside_risk_pct": 0.0734
+      }
+    ],
+    "drivers": [],
+    "warnings": [
+      "Median forecast is nearly flat (+0.7% over 6 months). Margin risk comes primarily from your current cost baseline and scenario assumptions.",
+      "No clearly relevant external drivers identified for this ingredient. Recommendation is based on forecast distribution and margin impact."
+    ]
+  },
+  "wine": {
+    "ingredient": "wine",
+    "unit": "EUR/kg",
+    "source_format": "converted_cache_v2",
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "horizon_months": 6,
+    "last_historical_date": "2025-12",
+    "current_price_eur_kg": 8.0,
+    "series": [
+      {
+        "month": "2026-01",
+        "price_median": 8.0205,
+        "price_lower": 7.7573,
+        "price_upper": 8.2837,
+        "price_p10": 7.8154,
+        "price_p90": 8.2256,
+        "band_width_abs": 0.5264,
+        "band_width_pct": 0.0656,
+        "upside_risk_pct": 0.0328
+      },
+      {
+        "month": "2026-02",
+        "price_median": 7.9739,
+        "price_lower": 7.6017,
+        "price_upper": 8.3461,
+        "price_p10": 7.6838,
+        "price_p90": 8.264,
+        "band_width_abs": 0.7444,
+        "band_width_pct": 0.0934,
+        "upside_risk_pct": 0.0467
+      },
+      {
+        "month": "2026-03",
+        "price_median": 7.9965,
+        "price_lower": 7.5406,
+        "price_upper": 8.4524,
+        "price_p10": 7.6412,
+        "price_p90": 8.3518,
+        "band_width_abs": 0.9118,
+        "band_width_pct": 0.114,
+        "upside_risk_pct": 0.057
+      },
+      {
+        "month": "2026-04",
+        "price_median": 7.9893,
+        "price_lower": 7.4629,
+        "price_upper": 8.5157,
+        "price_p10": 7.5791,
+        "price_p90": 8.3995,
+        "band_width_abs": 1.0528,
+        "band_width_pct": 0.1318,
+        "upside_risk_pct": 0.0659
+      },
+      {
+        "month": "2026-05",
+        "price_median": 8.0086,
+        "price_lower": 7.4201,
+        "price_upper": 8.5971,
+        "price_p10": 7.5499,
+        "price_p90": 8.4673,
+        "band_width_abs": 1.177,
+        "band_width_pct": 0.147,
+        "upside_risk_pct": 0.0735
+      },
+      {
+        "month": "2026-06",
+        "price_median": 7.9307,
+        "price_lower": 7.286,
+        "price_upper": 8.5754,
+        "price_p10": 7.4283,
+        "price_p90": 8.4332,
+        "band_width_abs": 1.2894,
+        "band_width_pct": 0.1626,
+        "upside_risk_pct": 0.0813
+      }
+    ],
+    "drivers": [
+      {
+        "name": "EU food inflation",
+        "raw_name": "EU food inflation",
+        "importance": 85.0,
+        "direction": -1.0,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Energy costs",
+        "raw_name": "Energy costs",
+        "importance": 60.0,
+        "direction": 0.5,
+        "relevance_score": 0.5,
+        "visible": true
+      },
+      {
+        "name": "Supply chain",
+        "raw_name": "Supply chain",
+        "importance": 45.0,
+        "direction": 0.3,
+        "relevance_score": 0.5,
+        "visible": true
+      }
+    ],
+    "warnings": [
+      "Median forecast is nearly flat (-1.1% over 6 months). Margin risk comes primarily from your current cost baseline and scenario assumptions."
+    ]
+  }
+}

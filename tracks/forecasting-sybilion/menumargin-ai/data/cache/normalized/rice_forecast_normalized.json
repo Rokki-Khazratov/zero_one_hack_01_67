@@ -1,0 +1,107 @@
+{
+  "ingredient": "rice",
+  "unit": "EUR/kg",
+  "source_format": "converted_cache_v2",
+  "forecast_start": "2026-01-01",
+  "forecast_end": "2026-06-01",
+  "horizon_months": 6,
+  "last_historical_date": "2025-12",
+  "current_price_eur_kg": 2.8,
+  "series": [
+    {
+      "month": "2026-01",
+      "price_median": 2.8076,
+      "price_lower": 2.7154,
+      "price_upper": 2.8997,
+      "price_p10": 2.7358,
+      "price_p90": 2.8794,
+      "band_width_abs": 0.1843,
+      "band_width_pct": 0.0656,
+      "upside_risk_pct": 0.0328
+    },
+    {
+      "month": "2026-02",
+      "price_median": 2.8065,
+      "price_lower": 2.6762,
+      "price_upper": 2.9368,
+      "price_p10": 2.705,
+      "price_p90": 2.908,
+      "band_width_abs": 0.2606,
+      "band_width_pct": 0.0929,
+      "upside_risk_pct": 0.0464
+    },
+    {
+      "month": "2026-03",
+      "price_median": 2.8164,
+      "price_lower": 2.6569,
+      "price_upper": 2.976,
+      "price_p10": 2.6921,
+      "price_p90": 2.9408,
+      "band_width_abs": 0.3191,
+      "band_width_pct": 0.1133,
+      "upside_risk_pct": 0.0567
+    },
+    {
+      "month": "2026-04",
+      "price_median": 2.7896,
+      "price_lower": 2.6054,
+      "price_upper": 2.9739,
+      "price_p10": 2.646,
+      "price_p90": 2.9332,
+      "band_width_abs": 0.3685,
+      "band_width_pct": 0.1321,
+      "upside_risk_pct": 0.0661
+    },
+    {
+      "month": "2026-05",
+      "price_median": 2.8066,
+      "price_lower": 2.6006,
+      "price_upper": 3.0126,
+      "price_p10": 2.6461,
+      "price_p90": 2.9671,
+      "band_width_abs": 0.412,
+      "band_width_pct": 0.1468,
+      "upside_risk_pct": 0.0734
+    },
+    {
+      "month": "2026-06",
+      "price_median": 2.8188,
+      "price_lower": 2.5932,
+      "price_upper": 3.0445,
+      "price_p10": 2.643,
+      "price_p90": 2.9947,
+      "band_width_abs": 0.4513,
+      "band_width_pct": 0.1601,
+      "upside_risk_pct": 0.0801
+    }
+  ],
+  "drivers": [
+    {
+      "name": "EU food inflation",
+      "raw_name": "EU food inflation",
+      "importance": 85.0,
+      "direction": 1.0,
+      "relevance_score": 0.5,
+      "visible": true
+    },
+    {
+      "name": "Energy costs",
+      "raw_name": "Energy costs",
+      "importance": 60.0,
+      "direction": 0.5,
+      "relevance_score": 0.5,
+      "visible": true
+    },
+    {
+      "name": "Supply chain",
+      "raw_name": "Supply chain",
+      "importance": 45.0,
+      "direction": 0.3,
+      "relevance_score": 0.5,
+      "visible": true
+    }
+  ],
+  "warnings": [
+    "Median forecast is nearly flat (+0.4% over 6 months). Margin risk comes primarily from your current cost baseline and scenario assumptions."
+  ]
+}

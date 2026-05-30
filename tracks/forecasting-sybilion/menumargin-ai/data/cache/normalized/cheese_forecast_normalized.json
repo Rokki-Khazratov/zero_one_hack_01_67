@@ -1,0 +1,124 @@
+{
+  "ingredient": "cheese",
+  "unit": "EUR/kg",
+  "source_format": "converted_cache_v2",
+  "forecast_start": "2026-01-01",
+  "forecast_end": "2026-06-01",
+  "horizon_months": 6,
+  "last_historical_date": "2025-12-01",
+  "current_price_eur_kg": 18.5,
+  "series": [
+    {
+      "month": "2026-01",
+      "price_median": 18.396,
+      "price_lower": 18.2787,
+      "price_upper": 18.514,
+      "price_p10": 18.3449,
+      "price_p90": 18.4473,
+      "band_width_abs": 0.2353,
+      "band_width_pct": 0.0128,
+      "upside_risk_pct": 0.0064
+    },
+    {
+      "month": "2026-02",
+      "price_median": 18.3728,
+      "price_lower": 18.2585,
+      "price_upper": 18.4877,
+      "price_p10": 18.3139,
+      "price_p90": 18.4319,
+      "band_width_abs": 0.2292,
+      "band_width_pct": 0.0125,
+      "upside_risk_pct": 0.0063
+    },
+    {
+      "month": "2026-03",
+      "price_median": 18.3557,
+      "price_lower": 18.2102,
+      "price_upper": 18.5024,
+      "price_p10": 18.2692,
+      "price_p90": 18.4427,
+      "band_width_abs": 0.2922,
+      "band_width_pct": 0.0159,
+      "upside_risk_pct": 0.008
+    },
+    {
+      "month": "2026-04",
+      "price_median": 18.3415,
+      "price_lower": 18.1642,
+      "price_upper": 18.5205,
+      "price_p10": 18.2166,
+      "price_p90": 18.4672,
+      "band_width_abs": 0.3563,
+      "band_width_pct": 0.0194,
+      "upside_risk_pct": 0.0098
+    },
+    {
+      "month": "2026-05",
+      "price_median": 18.3294,
+      "price_lower": 18.1112,
+      "price_upper": 18.5503,
+      "price_p10": 18.1675,
+      "price_p90": 18.4929,
+      "band_width_abs": 0.4391,
+      "band_width_pct": 0.024,
+      "upside_risk_pct": 0.0121
+    },
+    {
+      "month": "2026-06",
+      "price_median": 18.3186,
+      "price_lower": 18.0691,
+      "price_upper": 18.5715,
+      "price_p10": 18.1208,
+      "price_p90": 18.5185,
+      "band_width_abs": 0.5024,
+      "band_width_pct": 0.0274,
+      "upside_risk_pct": 0.0138
+    }
+  ],
+  "drivers": [
+    {
+      "name": "Milk, Cheese And Eggs import price index \u2014 Italy",
+      "raw_name": "Food price monitoring tool, Index, 2015=100, Import price index, Milk, cheese and eggs, Italy in Italy",
+      "importance": 100.0,
+      "direction": 0.951,
+      "relevance_score": 1.0,
+      "visible": true
+    },
+    {
+      "name": "Global economic risk \u2014 France",
+      "raw_name": "Global risk - France",
+      "importance": 99.7,
+      "direction": 0.207,
+      "relevance_score": 0.1,
+      "visible": false
+    },
+    {
+      "name": "Labour market \u2014 United States Of America",
+      "raw_name": "Labour market - United States of America",
+      "importance": 98.0,
+      "direction": 0.799,
+      "relevance_score": 0.0,
+      "visible": false
+    },
+    {
+      "name": "Manufacture Of Textiles And Wearing Apparel producer prices \u2014 Ireland",
+      "raw_name": "Domestic producer prices \u2013 Manufacture of textiles and wearing apparel in Ireland",
+      "importance": 96.66,
+      "direction": 0.041,
+      "relevance_score": 0.0,
+      "visible": false
+    },
+    {
+      "name": "Population \u2014 Europe",
+      "raw_name": "Population - Europe",
+      "importance": 93.26,
+      "direction": 0.507,
+      "relevance_score": 0.0,
+      "visible": false
+    }
+  ],
+  "warnings": [
+    "Confidence interval is narrow (avg \u00b11.9%). This reflects smooth index-based inputs; real wholesale price volatility may be higher.",
+    "Median forecast is nearly flat (-0.4% over 6 months). Margin risk comes primarily from your current cost baseline and scenario assumptions."
+  ]
+}

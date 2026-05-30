@@ -1,0 +1,123 @@
+{
+  "ingredient": "eggs",
+  "unit": "EUR/kg",
+  "source_format": "converted_cache_v2",
+  "forecast_start": "2026-01-01",
+  "forecast_end": "2026-06-01",
+  "horizon_months": 6,
+  "last_historical_date": "2025-12-01",
+  "current_price_eur_kg": 9.5,
+  "series": [
+    {
+      "month": "2026-01",
+      "price_median": 9.4368,
+      "price_lower": 9.2856,
+      "price_upper": 9.5905,
+      "price_p10": 9.2872,
+      "price_p90": 9.5889,
+      "band_width_abs": 0.3049,
+      "band_width_pct": 0.0323,
+      "upside_risk_pct": 0.0163
+    },
+    {
+      "month": "2026-02",
+      "price_median": 9.4656,
+      "price_lower": 9.2356,
+      "price_upper": 9.7013,
+      "price_p10": 9.2465,
+      "price_p90": 9.6898,
+      "band_width_abs": 0.4657,
+      "band_width_pct": 0.0492,
+      "upside_risk_pct": 0.0249
+    },
+    {
+      "month": "2026-03",
+      "price_median": 9.4917,
+      "price_lower": 9.1926,
+      "price_upper": 9.8004,
+      "price_p10": 9.2051,
+      "price_p90": 9.7871,
+      "band_width_abs": 0.6078,
+      "band_width_pct": 0.064,
+      "upside_risk_pct": 0.0325
+    },
+    {
+      "month": "2026-04",
+      "price_median": 9.5163,
+      "price_lower": 9.1317,
+      "price_upper": 9.9171,
+      "price_p10": 9.169,
+      "price_p90": 9.8768,
+      "band_width_abs": 0.7854,
+      "band_width_pct": 0.0825,
+      "upside_risk_pct": 0.0421
+    },
+    {
+      "month": "2026-05",
+      "price_median": 9.5408,
+      "price_lower": 9.0482,
+      "price_upper": 10.0601,
+      "price_p10": 9.1295,
+      "price_p90": 9.9706,
+      "band_width_abs": 1.0119,
+      "band_width_pct": 0.1061,
+      "upside_risk_pct": 0.0544
+    },
+    {
+      "month": "2026-06",
+      "price_median": 9.5654,
+      "price_lower": 8.8514,
+      "price_upper": 10.3368,
+      "price_p10": 9.0536,
+      "price_p90": 10.106,
+      "band_width_abs": 1.4854,
+      "band_width_pct": 0.1553,
+      "upside_risk_pct": 0.0806
+    }
+  ],
+  "drivers": [
+    {
+      "name": "Consumer price index: First Published Data (Monthly Index And Annual Rate \u2014 Chan",
+      "raw_name": "HICP - first published data (monthly index and annual rate of change), Index, 2015=100, Eggs, Final, Portugal in Portugal",
+      "importance": 43.36,
+      "direction": 0.974,
+      "relevance_score": 0.633,
+      "visible": true
+    },
+    {
+      "name": "Energy - United States of America",
+      "raw_name": "Energy - United States of America",
+      "importance": 23.36,
+      "direction": 0.83,
+      "relevance_score": 0.333,
+      "visible": true
+    },
+    {
+      "name": "Price per kg of Germany exports of Prepared or preserved fish via Road",
+      "raw_name": "Price per kg of Germany exports of Prepared or preserved fish via Road",
+      "importance": 100.0,
+      "direction": -0.101,
+      "relevance_score": 0.1,
+      "visible": false
+    },
+    {
+      "name": "Market Indices - World",
+      "raw_name": "Market Indices - World",
+      "importance": 68.7,
+      "direction": 0.062,
+      "relevance_score": 0.1,
+      "visible": false
+    },
+    {
+      "name": "Crude oil production in United States of America",
+      "raw_name": "Crude oil production in United States of America",
+      "importance": 64.52,
+      "direction": 0.915,
+      "relevance_score": 0.1,
+      "visible": false
+    }
+  ],
+  "warnings": [
+    "Median forecast is nearly flat (+1.4% over 6 months). Margin risk comes primarily from your current cost baseline and scenario assumptions."
+  ]
+}
