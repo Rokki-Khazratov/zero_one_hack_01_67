@@ -9,7 +9,11 @@ DATA_DIR = Path(__file__).parent.parent.parent.parent / "data"
 
 def normalize_forecast(ingredient: str, raw: dict) -> dict:
     """
-    Convert Sybilion raw API response into internal normalized format.
+    Convert cached forecast into internal normalized format.
+
+    Supports two cache formats:
+    - v2.0 (EUR/kg):  raw["forecast"]["series"] with price_eur_kg + quantiles
+    - v1.x (index):   raw["forecast"]["data"]["forecast_series"] with index values
 
     Output:
     {
@@ -19,27 +23,63 @@ def normalize_forecast(ingredient: str, raw: dict) -> dict:
       backtest: {mape, reliability}
     }
     """
+    # Detect format version
+    if "series" in raw.get("forecast", {}):
+        return _normalize_v2(ingredient, raw)
+    return _normalize_v1(ingredient, raw)
+
+
+def _normalize_v2(ingredient: str, raw: dict) -> dict:
+    """v2.0 cache — already in EUR/kg."""
+    current_price = raw.get("current_price_eur_kg", load_current_price(ingredient))
+    series = raw["forecast"]["series"]
+
+    forecast_points = []
+    for date_str, values in sorted(series.items()):
+        month = date_str[:7]
+        q = values.get("quantiles", {})
+        median = values.get("price_eur_kg", q.get("P50", 0))
+        forecast_points.append({
+            "month": month,
+            "median":     round(median, 4),
+            "lower_band": round(q.get("P10", median * 0.9), 4),
+            "upper_band": round(q.get("P90", median * 1.1), 4),
+        })
+
+    drivers = []
+    for d in raw.get("top_drivers", []):
+        drivers.append({
+            "driver_name": d.get("driver_name", ""),
+            "importance":  round(float(d.get("importance", 0)), 3),
+            "direction":   round(float(d.get("direction", 0)), 3),
+        })
+
+    return {
+        "ingredient": ingredient,
+        "current_price_per_kg": current_price,
+        "forecast": forecast_points,
+        "drivers": drivers[:5],
+        "backtest": {"mape": None, "reliability": "unknown"},
+    }
+
+
+def _normalize_v1(ingredient: str, raw: dict) -> dict:
+    """v1.x cache — index values, needs conversion to EUR/kg."""
     current_price = load_current_price(ingredient)
 
     forecast_series = raw["forecast"]["data"]["forecast_series"]
-    signals = raw.get("signals", {})
+    signals_artifact = raw.get("signals", {})
+    signals = signals_artifact.get("data", signals_artifact) if isinstance(signals_artifact, dict) else {}
 
-    # Scale factor: index → €/kg
-    # We need the latest historical index to convert quantile indices back to prices.
-    # Since Sybilion returns index values, we use the same reconstruction formula.
-    # The current_price corresponds to the latest index (≈ index at last training point).
-    # We approximate: latest_index ≈ forecast median at horizon 0 extrapolated from history.
-    # Simpler: just compute ratio per point using the same current_price anchor.
-    # Sybilion forecasts the INDEX. We convert: price = current_price * index / latest_index.
-    # latest_index comes from processed ingredient_prices.csv.
-    latest_index = _get_latest_index(ingredient)
+    latest_index = _get_latest_index(ingredient, current_price)
 
     forecast_points = []
     for date_str, values in sorted(forecast_series.items()):
-        month = date_str[:7]  # YYYY-MM
-        idx_median = values.get("forecast", values.get("quantile_forecast", {}).get("0.5", 0))
-        idx_lower  = values.get("quantile_forecast", {}).get("0.1", idx_median * 0.9)
-        idx_upper  = values.get("quantile_forecast", {}).get("0.9", idx_median * 1.1)
+        month = date_str[:7]
+        quantiles = values.get("quantile_forecast", {})
+        idx_median = values.get("forecast", quantiles.get("0.50", 0))
+        idx_lower  = quantiles.get("0.10", idx_median * 0.9)
+        idx_upper  = quantiles.get("0.90", idx_median * 1.1)
 
         forecast_points.append({
             "month": month,
@@ -50,6 +90,8 @@ def normalize_forecast(ingredient: str, raw: dict) -> dict:
 
     drivers = []
     for uid, sig in signals.items():
+        if not isinstance(sig, dict):
+            continue
         importance = sig.get("importance", {}).get("overall", {}).get("mean", 0)
         direction  = sig.get("direction",  {}).get("overall", {}).get("mean", 0)
         drivers.append({
@@ -70,20 +112,25 @@ def normalize_forecast(ingredient: str, raw: dict) -> dict:
     }
 
 
-def _get_latest_index(ingredient: str) -> float:
+def _get_latest_index(ingredient: str, current_price: float) -> float:
+    """
+    Return the HICP index value that anchors current_price in EUR/kg.
+    Only used for v1.x cache format.
+    """
     prices_path = DATA_DIR / "processed" / "ingredient_prices.csv"
     if prices_path.exists():
         df = pd.read_csv(prices_path)
         sub = df[df["ingredient"] == ingredient].sort_values("date")
         if not sub.empty:
-            return float(sub["index_value"].iloc[-1])
-    return 100.0  # fallback: assume current = base
+            latest_row = sub.iloc[-1]
+            stored_index = float(latest_row["index_value"])
+            stored_price = float(latest_row["current_price_per_kg"])
+            return stored_index * (current_price / stored_price)
+    return 100.0
 
 
 def _extract_backtest(raw: dict) -> dict:
     try:
-        artifacts = raw.get("forecast", {}).get("data", {})
-        # backtest_metrics is a separate artifact — may be embedded or absent
         mape = None
         reliability = "unknown"
         if "backtest_metrics" in raw:

@@ -1,0 +1,113 @@
+{
+  "ingredient": "eggs",
+  "unit": "EUR/kg",
+  "current_price_eur_kg": 9.5,
+  "forecast": {
+    "horizon_months": 6,
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "last_historical_date": "2025-12-01",
+    "series": {
+      "2026-01-01": {
+        "price_eur_kg": 9.4368,
+        "quantiles": {
+          "P05": 9.2856,
+          "P10": 9.2872,
+          "P25": 9.3996,
+          "P50": 9.4368,
+          "P75": 9.4742,
+          "P90": 9.5889,
+          "P95": 9.5905
+        }
+      },
+      "2026-02-01": {
+        "price_eur_kg": 9.4656,
+        "quantiles": {
+          "P05": 9.2356,
+          "P10": 9.2465,
+          "P25": 9.3823,
+          "P50": 9.4656,
+          "P75": 9.5496,
+          "P90": 9.6898,
+          "P95": 9.7013
+        }
+      },
+      "2026-03-01": {
+        "price_eur_kg": 9.4917,
+        "quantiles": {
+          "P05": 9.1926,
+          "P10": 9.2051,
+          "P25": 9.3639,
+          "P50": 9.4917,
+          "P75": 9.6211,
+          "P90": 9.7871,
+          "P95": 9.8004
+        }
+      },
+      "2026-04-01": {
+        "price_eur_kg": 9.5163,
+        "quantiles": {
+          "P05": 9.1317,
+          "P10": 9.169,
+          "P25": 9.3577,
+          "P50": 9.5163,
+          "P75": 9.6777,
+          "P90": 9.8768,
+          "P95": 9.9171
+        }
+      },
+      "2026-05-01": {
+        "price_eur_kg": 9.5408,
+        "quantiles": {
+          "P05": 9.0482,
+          "P10": 9.1295,
+          "P25": 9.3285,
+          "P50": 9.5408,
+          "P75": 9.758,
+          "P90": 9.9706,
+          "P95": 10.0601
+        }
+      },
+      "2026-06-01": {
+        "price_eur_kg": 9.5654,
+        "quantiles": {
+          "P05": 8.8514,
+          "P10": 9.0536,
+          "P25": 9.2651,
+          "P50": 9.5654,
+          "P75": 9.8755,
+          "P90": 10.106,
+          "P95": 10.3368
+        }
+      }
+    }
+  },
+  "top_drivers": [
+    {
+      "driver_name": "Price per kg of Germany exports of Prepared or preserved fish via Road",
+      "importance": 100.0,
+      "direction": -0.101
+    },
+    {
+      "driver_name": "Market Indices - World",
+      "importance": 68.702,
+      "direction": 0.062
+    },
+    {
+      "driver_name": "Crude oil production in United States of America",
+      "importance": 64.517,
+      "direction": 0.915
+    },
+    {
+      "driver_name": "HICP - first published data (monthly index and annual rate of change), Index, 2015=100, Eggs, Final, Portugal in Portugal",
+      "importance": 43.356,
+      "direction": 0.974
+    },
+    {
+      "driver_name": "Energy - United States of America",
+      "importance": 23.36,
+      "direction": 0.83
+    }
+  ],
+  "version": "2.0"
+}

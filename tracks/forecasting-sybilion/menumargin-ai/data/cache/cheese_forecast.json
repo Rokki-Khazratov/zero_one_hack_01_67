@@ -1,0 +1,113 @@
+{
+  "ingredient": "cheese",
+  "unit": "EUR/kg",
+  "current_price_eur_kg": 18.5,
+  "forecast": {
+    "horizon_months": 6,
+    "forecast_start": "2026-01-01",
+    "forecast_end": "2026-06-01",
+    "last_historical_date": "2025-12-01",
+    "series": {
+      "2026-01-01": {
+        "price_eur_kg": 18.396,
+        "quantiles": {
+          "P05": 18.2787,
+          "P10": 18.3449,
+          "P25": 18.3804,
+          "P50": 18.396,
+          "P75": 18.4117,
+          "P90": 18.4473,
+          "P95": 18.514
+        }
+      },
+      "2026-02-01": {
+        "price_eur_kg": 18.3728,
+        "quantiles": {
+          "P05": 18.2585,
+          "P10": 18.3139,
+          "P25": 18.3468,
+          "P50": 18.3728,
+          "P75": 18.3988,
+          "P90": 18.4319,
+          "P95": 18.4877
+        }
+      },
+      "2026-03-01": {
+        "price_eur_kg": 18.3557,
+        "quantiles": {
+          "P05": 18.2102,
+          "P10": 18.2692,
+          "P25": 18.3069,
+          "P50": 18.3557,
+          "P75": 18.4048,
+          "P90": 18.4427,
+          "P95": 18.5024
+        }
+      },
+      "2026-04-01": {
+        "price_eur_kg": 18.3415,
+        "quantiles": {
+          "P05": 18.1642,
+          "P10": 18.2166,
+          "P25": 18.2608,
+          "P50": 18.3415,
+          "P75": 18.4225,
+          "P90": 18.4672,
+          "P95": 18.5205
+        }
+      },
+      "2026-05-01": {
+        "price_eur_kg": 18.3294,
+        "quantiles": {
+          "P05": 18.1112,
+          "P10": 18.1675,
+          "P25": 18.2478,
+          "P50": 18.3294,
+          "P75": 18.4115,
+          "P90": 18.4929,
+          "P95": 18.5503
+        }
+      },
+      "2026-06-01": {
+        "price_eur_kg": 18.3186,
+        "quantiles": {
+          "P05": 18.0691,
+          "P10": 18.1208,
+          "P25": 18.2172,
+          "P50": 18.3186,
+          "P75": 18.4205,
+          "P90": 18.5185,
+          "P95": 18.5715
+        }
+      }
+    }
+  },
+  "top_drivers": [
+    {
+      "driver_name": "Food price monitoring tool, Index, 2015=100, Import price index, Milk, cheese and eggs, Italy in Italy",
+      "importance": 100.0,
+      "direction": 0.951
+    },
+    {
+      "driver_name": "Global risk - France",
+      "importance": 99.703,
+      "direction": 0.207
+    },
+    {
+      "driver_name": "Labour market - United States of America",
+      "importance": 97.999,
+      "direction": 0.799
+    },
+    {
+      "driver_name": "Domestic producer prices \u2013 Manufacture of textiles and wearing apparel in Ireland",
+      "importance": 96.663,
+      "direction": 0.041
+    },
+    {
+      "driver_name": "Population - Europe",
+      "importance": 93.258,
+      "direction": 0.507
+    }
+  ],
+  "version": "2.0"
+}
