@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-/* ─── Typography ─────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400;500&display=swap');
-
 /* ─── Design Tokens ──────────────────────────────────────────────── */
 :root {
   --bg:           #F3EDE4;
@@ -17,17 +14,17 @@
   --text-3:  #A8A29A;
 
   --accent:       #B85C38;
-  --accent-light: #F5EAE4;
+  --accent-light: #F7EDE5;
   --accent-hover: #A04D2E;
 
   --ok-fg:    #166534;
-  --ok-bg:    #DCFCE7;
+  --ok-bg:    #E4F5E8;
   --mid-fg:   #92400E;
-  --mid-bg:   #FEF3C7;
+  --mid-bg:   #FDF0D0;
   --high-fg:  #991B1B;
-  --high-bg:  #FEE2E2;
+  --high-bg:  #FDE8E8;
   --crit-fg:  #7F1D1D;
-  --crit-bg:  #FEE2E2;
+  --crit-bg:  #FDE8E8;
 
   --chart-forecast: #B85C38;
   --chart-hist:     #6B8EAE;

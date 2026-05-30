@@ -41,7 +41,7 @@ export function IngredientForecastChart({
   const accentColor = isDark ? "#D4733C" : "#B85C38";
   const histColor   = isDark ? "#7BA4CC" : "#6B8EAE";
   const bandColor   = isDark ? "rgba(212,115,60,0.18)" : "rgba(184,92,56,0.12)";
-  const maskColor   = isDark ? "#0E0D0B" : "#FAFAF7";
+  const maskColor   = isDark ? "#0E0D0B" : "#FAF7F2";
 
   const histData = (historicalPrices ?? []).map((p) => ({
     date: p.date.slice(0, 7),
