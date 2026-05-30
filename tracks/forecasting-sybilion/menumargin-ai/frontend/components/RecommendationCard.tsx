@@ -1,77 +1,138 @@
 import { Recommendation } from "@/types/menu";
 
-const ACTION_STYLE: Record<string, string> = {
-  KEEP_PRICE:                  "bg-green-900/30 text-green-300 border-green-800",
-  RAISE_PRICE_NOW:             "bg-red-900/30 text-red-300 border-red-800",
-  RAISE_PRICE_GRADUALLY:       "bg-orange-900/30 text-orange-300 border-orange-800",
-  BUY_INGREDIENT_STOCK:        "bg-blue-900/30 text-blue-300 border-blue-800",
-  CHANGE_RECIPE:               "bg-purple-900/30 text-purple-300 border-purple-800",
-  ACCEPT_TEMPORARY_MARGIN_DROP:"bg-yellow-900/30 text-yellow-300 border-yellow-800",
-  MANUAL_REVIEW:               "bg-zinc-800 text-zinc-300 border-zinc-700",
+const ACTION_META: Record<string, { label: string; varFg: string; varBg: string }> = {
+  KEEP_PRICE:                  { label: "Hold Price",       varFg: "--ok-fg",   varBg: "--ok-bg"   },
+  RAISE_PRICE_NOW:             { label: "Raise Now",        varFg: "--crit-fg", varBg: "--crit-bg" },
+  RAISE_PRICE_GRADUALLY:       { label: "Raise Gradually",  varFg: "--mid-fg",  varBg: "--mid-bg"  },
+  BUY_INGREDIENT_STOCK:        { label: "Stock Up",         varFg: "--accent",  varBg: "--accent-light" },
+  CHANGE_RECIPE:               { label: "Adjust Recipe",    varFg: "--mid-fg",  varBg: "--mid-bg"  },
+  ACCEPT_TEMPORARY_MARGIN_DROP:{ label: "Accept Dip",       varFg: "--text-2",  varBg: "--bg-hover"},
+  MANUAL_REVIEW:               { label: "Manual Review",    varFg: "--text-2",  varBg: "--bg-hover"},
 };
 
 export function RecommendationCard({ rec }: { rec: Recommendation }) {
-  const style = ACTION_STYLE[rec.primary_action] ?? "bg-zinc-800 text-zinc-300 border-zinc-700";
+  const meta = ACTION_META[rec.primary_action] ?? { label: rec.primary_action.replace(/_/g," "), varFg: "--text-2", varBg: "--bg-hover" };
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 space-y-4">
-      <div className="flex items-start justify-between">
+    <div className="card" style={{ padding: "20px 24px", display: "flex", flexDirection: "column", gap: 16 }}>
+      {/* Header */}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
         <div>
-          <h3 className="text-base font-semibold text-white">{rec.dish}</h3>
-          <p className="text-xs text-zinc-500 mt-0.5">Current €{rec.current_price.toFixed(2)}</p>
+          <h3 className="display" style={{ fontSize: 18, fontWeight: 400, color: "var(--text-1)", lineHeight: 1.2 }}>
+            {rec.dish}
+          </h3>
+          <p style={{ fontSize: 11, color: "var(--text-3)", marginTop: 2 }}>
+            Recommendation
+          </p>
         </div>
-        <span className={`border rounded-full px-3 py-1 text-xs font-medium ${style}`}>
-          {rec.primary_action.replace(/_/g, " ")}
+        <span
+          style={{
+            fontSize: 11, fontWeight: 600, letterSpacing: "0.04em",
+            padding: "4px 12px", borderRadius: 99,
+            background: `var(${meta.varBg})`,
+            color: `var(${meta.varFg})`,
+          }}
+        >
+          {meta.label}
         </span>
       </div>
 
+      {/* Price */}
       {rec.recommended_price !== rec.current_price && (
-        <div className="flex gap-4 text-sm">
-          <div>
-            <span className="text-zinc-500 text-xs">Required</span>
-            <p className="text-white font-medium">€{rec.required_price.toFixed(2)}</p>
-          </div>
-          <div>
-            <span className="text-zinc-500 text-xs">Recommended</span>
-            <p className="text-orange-300 font-bold">€{rec.recommended_price.toFixed(2)}</p>
-          </div>
+        <div
+          style={{
+            display: "grid", gridTemplateColumns: "1fr 1fr 1fr",
+            gap: 1, background: "var(--border)", borderRadius: 10, overflow: "hidden",
+          }}
+        >
+          {[
+            { label: "Current",     value: `€${rec.current_price.toFixed(2)}`,    accent: false },
+            { label: "Required",    value: `€${rec.required_price.toFixed(2)}`,   accent: false },
+            { label: "Recommended", value: `€${rec.recommended_price.toFixed(2)}`,accent: true  },
+          ].map((item) => (
+            <div
+              key={item.label}
+              style={{
+                background: "var(--bg-card)", padding: "12px 14px",
+                display: "flex", flexDirection: "column", gap: 3,
+              }}
+            >
+              <span style={{ fontSize: 10, color: "var(--text-3)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                {item.label}
+              </span>
+              <span
+                className="mono display"
+                style={{
+                  fontSize: 20, fontWeight: 400, letterSpacing: "-0.01em",
+                  color: item.accent ? "var(--accent)" : "var(--text-1)",
+                }}
+              >
+                {item.value}
+              </span>
+            </div>
+          ))}
         </div>
       )}
 
+      {/* Price plan */}
       {rec.price_plan.length > 0 && (
         <div>
-          <p className="text-xs text-zinc-500 mb-2">Price Plan</p>
-          <div className="flex gap-2 flex-wrap">
-            <span className="text-xs bg-zinc-800 text-zinc-300 px-2 py-1 rounded">
-              Now €{rec.current_price.toFixed(2)}
+          <p style={{ fontSize: 10, color: "var(--text-3)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 8 }}>
+            Price Path
+          </p>
+          <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 4 }}>
+            <span className="mono" style={{ fontSize: 12, color: "var(--text-2)" }}>
+              €{rec.current_price.toFixed(2)}
             </span>
             {rec.price_plan.map((step, i) => (
-              <span key={i} className="text-xs bg-zinc-800 text-orange-300 px-2 py-1 rounded">
-                {step.month} → €{step.recommended_price.toFixed(2)}
+              <span key={i} style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                <span style={{ color: "var(--border-strong, var(--text-3))", fontSize: 10 }}>→</span>
+                <span
+                  className="mono"
+                  style={{
+                    fontSize: 12, fontWeight: 500, color: "var(--accent)",
+                    background: "var(--accent-light)", padding: "2px 7px", borderRadius: 6,
+                  }}
+                >
+                  €{step.recommended_price.toFixed(2)}
+                </span>
               </span>
             ))}
           </div>
         </div>
       )}
 
+      {/* Procurement */}
       {rec.procurement_ingredients.length > 0 && (
         <div>
-          <p className="text-xs text-zinc-500 mb-1">Buy Stock Early</p>
-          <div className="flex gap-2">
+          <p style={{ fontSize: 10, color: "var(--text-3)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 6 }}>
+            Buy Early
+          </p>
+          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
             {rec.procurement_ingredients.map((ing) => (
-              <span key={ing} className="text-xs bg-blue-900/40 text-blue-300 px-2 py-0.5 rounded-full">
-                {ing.replace("_", " ")}
+              <span
+                key={ing}
+                style={{
+                  fontSize: 12, padding: "3px 10px", borderRadius: 99,
+                  background: "var(--accent-light)", color: "var(--accent)",
+                  border: "1px solid var(--accent)",
+                }}
+              >
+                {ing.replace(/_/g, " ")}
               </span>
             ))}
           </div>
         </div>
       )}
 
+      {/* Recipe */}
       {rec.recipe_adjustments.length > 0 && (
         <div>
-          <p className="text-xs text-zinc-500 mb-1">Recipe</p>
+          <p style={{ fontSize: 10, color: "var(--text-3)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 4 }}>
+            Recipe
+          </p>
           {rec.recipe_adjustments.map((adj, i) => (
-            <p key={i} className="text-xs text-purple-300">{adj}</p>
+            <p key={i} style={{ fontSize: 12, color: "var(--mid-fg)" }}>{adj}</p>
           ))}
         </div>
       )}

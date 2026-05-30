@@ -1,26 +1,179 @@
 @import "tailwindcss";
 
+/* ─── Typography ─────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@300;400;500&display=swap');
+
+/* ─── Design Tokens ──────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:           #F8F7F4;
+  --bg-card:      #FFFFFF;
+  --bg-hover:     #F2EFE8;
+  --bg-selected:  #EAE6DC;
+  --border:       #E4E0D8;
+  --border-muted: #EDE9E2;
+
+  --text-1:  #1A1714;
+  --text-2:  #6B665D;
+  --text-3:  #A8A29A;
+
+  --accent:       #B85C38;
+  --accent-light: #F5EAE4;
+  --accent-hover: #A04D2E;
+
+  --ok-fg:    #166534;
+  --ok-bg:    #DCFCE7;
+  --mid-fg:   #92400E;
+  --mid-bg:   #FEF3C7;
+  --high-fg:  #991B1B;
+  --high-bg:  #FEE2E2;
+  --crit-fg:  #7F1D1D;
+  --crit-bg:  #FEE2E2;
+
+  --chart-forecast: #B85C38;
+  --chart-hist:     #6B8EAE;
+  --chart-band:     rgba(184,92,56,0.10);
+  --chart-grid:     rgba(0,0,0,0.05);
+  --chart-ref:      #E53E3E;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow:    0 2px 8px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05);
+
+  --radius-sm: 8px;
+  --radius:    12px;
+  --radius-lg: 16px;
+
+  --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html.dark {
+  --bg:           #0E0D0B;
+  --bg-card:      #181714;
+  --bg-hover:     #211F1B;
+  --bg-selected:  #2A2822;
+  --border:       #2C2A24;
+  --border-muted: #242220;
+
+  --text-1:  #EDE8DF;
+  --text-2:  #7A756C;
+  --text-3:  #4A4742;
+
+  --accent:       #D4733C;
+  --accent-light: #271610;
+  --accent-hover: #E0844D;
+
+  --ok-fg:    #4ADE80;
+  --ok-bg:    #052E16;
+  --mid-fg:   #FCD34D;
+  --mid-bg:   #1C1200;
+  --high-fg:  #F87171;
+  --high-bg:  #1A0404;
+  --crit-fg:  #FF6B6B;
+  --crit-bg:  #230808;
+
+  --chart-forecast: #D4733C;
+  --chart-hist:     #7BA4CC;
+  --chart-band:     rgba(212,115,60,0.15);
+  --chart-grid:     rgba(255,255,255,0.05);
+  --chart-ref:      #F87171;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow:    0 2px 8px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.7);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Base ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text-1);
+  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* ─── Typography helpers ─────────────────────────────────────────── */
+.display { font-family: 'Cormorant Garamond', Georgia, serif; }
+.mono    { font-family: 'DM Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+/* ─── Card ───────────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+/* ─── Divider ────────────────────────────────────────────────────── */
+.divider { border-color: var(--border); }
+
+/* ─── Scrollbar ──────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+
+/* ─── Animations ─────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.fade-up {
+  animation: fadeUp 0.45s cubic-bezier(0.4,0,0.2,1) both;
+}
+.fade-up-1 { animation-delay: 0.05s; }
+.fade-up-2 { animation-delay: 0.10s; }
+.fade-up-3 { animation-delay: 0.15s; }
+.fade-up-4 { animation-delay: 0.20s; }
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-hover) 25%,
+    var(--bg-selected) 50%,
+    var(--bg-hover) 75%
+  );
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: var(--radius-sm);
+}
+
+/* ─── Risk badges ────────────────────────────────────────────────── */
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 99px; font-size: 11px; font-weight: 500; letter-spacing: 0.01em; }
+.badge-ok       { background: var(--ok-bg);   color: var(--ok-fg);   }
+.badge-medium   { background: var(--mid-bg);  color: var(--mid-fg);  }
+.badge-high     { background: var(--high-bg); color: var(--high-fg); }
+.badge-critical { background: var(--crit-bg); color: var(--crit-fg); }
+
+/* ─── Section label ──────────────────────────────────────────────── */
+.section-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* ─── Recharts tooltip override ──────────────────────────────────── */
+.recharts-tooltip-wrapper .custom-tooltip {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: var(--shadow-lg) !important;
+  padding: 10px 14px !important;
 }

@@ -19,88 +19,114 @@ const DEFAULTS: ScenarioValues = {
   demand_shock_percent: 0,
 };
 
-export function ScenarioControls({
-  onSimulate,
-  loading,
+function Slider({
+  label, value, min, max, step, onChange,
 }: {
-  onSimulate: (sc: ScenarioValues) => void;
-  loading: boolean;
+  label: string; value: number; min: number; max: number; step: number;
+  onChange: (v: number) => void;
 }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <span style={{ fontSize: 12, color: "var(--text-2)" }}>{label}</span>
+        <span className="mono" style={{ fontSize: 12, fontWeight: 500, color: "var(--text-1)" }}>
+          {value}{label.includes("week") ? "w" : "%"}
+        </span>
+      </div>
+      <input
+        type="range" min={min} max={max} step={step} value={value}
+        onChange={(e) => onChange(+e.target.value)}
+        style={{ width: "100%", accentColor: "var(--accent)", cursor: "pointer" }}
+      />
+    </div>
+  );
+}
+
+function Toggle({ label, checked, onChange }: { label: string; checked: boolean; onChange: (v: boolean) => void }) {
+  return (
+    <label style={{ display: "flex", alignItems: "center", justifyContent: "space-between", cursor: "pointer", gap: 8 }}>
+      <span style={{ fontSize: 12, color: "var(--text-2)" }}>{label}</span>
+      <div
+        onClick={() => onChange(!checked)}
+        style={{
+          width: 36, height: 20, borderRadius: 99,
+          background: checked ? "var(--accent)" : "var(--bg-hover)",
+          border: "1px solid var(--border)",
+          position: "relative", transition: "background 0.2s ease",
+          flexShrink: 0,
+        }}
+      >
+        <span
+          style={{
+            position: "absolute", top: 2, left: 2,
+            width: 14, height: 14, borderRadius: "50%",
+            background: checked ? "#fff" : "var(--text-3)",
+            transform: checked ? "translateX(16px)" : "translateX(0)",
+            transition: "transform 0.2s ease",
+          }}
+        />
+      </div>
+    </label>
+  );
+}
+
+export function ScenarioControls({ onSimulate, loading }: { onSimulate: (sc: ScenarioValues) => void; loading: boolean }) {
   const [vals, setVals] = useState<ScenarioValues>(DEFAULTS);
-
-  const set = <K extends keyof ScenarioValues>(k: K, v: ScenarioValues[K]) =>
-    setVals((p) => ({ ...p, [k]: v }));
-
-  const resetToSundayScenario = () =>
-    setVals({ ...DEFAULTS, max_price_increase_percent: 5, supplier_lead_time_weeks: 8, allow_recipe_changes: false });
+  const set = <K extends keyof ScenarioValues>(k: K, v: ScenarioValues[K]) => setVals((p) => ({ ...p, [k]: v }));
+  const tight = () => setVals({ ...DEFAULTS, max_price_increase_percent: 5, supplier_lead_time_weeks: 8, allow_recipe_changes: false });
 
   return (
-    <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-5 space-y-5">
-      <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-white">Scenario Controls</h3>
+    <div className="card" style={{ padding: "20px 24px", display: "flex", flexDirection: "column", gap: 20 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+        <div>
+          <h3 className="display" style={{ fontSize: 18, fontWeight: 400, color: "var(--text-1)", lineHeight: 1.2 }}>
+            Scenario
+          </h3>
+          <p style={{ fontSize: 11, color: "var(--text-3)", marginTop: 2 }}>Adjust constraints and re-run</p>
+        </div>
         <button
-          onClick={resetToSundayScenario}
-          className="text-xs text-yellow-400 border border-yellow-800 rounded px-2 py-1 hover:bg-yellow-900/30 transition-colors"
+          onClick={tight}
+          style={{
+            fontSize: 11, padding: "4px 10px", borderRadius: 6, cursor: "pointer",
+            background: "var(--mid-bg)", color: "var(--mid-fg)",
+            border: "1px solid transparent",
+          }}
         >
-          Demo: Tight Constraints
+          Demo: tight
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label className="text-xs text-zinc-400">Max Price Increase: <span className="text-white">{vals.max_price_increase_percent}%</span></label>
-          <input
-            type="range" min={0} max={20} step={1}
-            value={vals.max_price_increase_percent}
-            onChange={(e) => set("max_price_increase_percent", +e.target.value)}
-            className="w-full mt-1 accent-orange-500"
-          />
-        </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+        <Slider label="Max price increase" value={vals.max_price_increase_percent} min={0} max={20} step={1}
+          onChange={(v) => set("max_price_increase_percent", v)} />
+        <Slider label="Supplier lead time (weeks)" value={vals.supplier_lead_time_weeks} min={1} max={16} step={1}
+          onChange={(v) => set("supplier_lead_time_weeks", v)} />
+        <Slider label="Demand shock" value={vals.demand_shock_percent} min={-20} max={20} step={1}
+          onChange={(v) => set("demand_shock_percent", v)} />
+      </div>
 
-        <div>
-          <label className="text-xs text-zinc-400">Supplier Lead Time: <span className="text-white">{vals.supplier_lead_time_weeks} weeks</span></label>
-          <input
-            type="range" min={1} max={16} step={1}
-            value={vals.supplier_lead_time_weeks}
-            onChange={(e) => set("supplier_lead_time_weeks", +e.target.value)}
-            className="w-full mt-1 accent-orange-500"
-          />
-        </div>
-
-        <div>
-          <label className="text-xs text-zinc-400">Demand Shock: <span className="text-white">{vals.demand_shock_percent}%</span></label>
-          <input
-            type="range" min={-20} max={20} step={1}
-            value={vals.demand_shock_percent}
-            onChange={(e) => set("demand_shock_percent", +e.target.value)}
-            className="w-full mt-1 accent-orange-500"
-          />
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox" checked={vals.allow_recipe_changes}
-              onChange={(e) => set("allow_recipe_changes", e.target.checked)}
-              className="accent-orange-500"
-            />
-            <span className="text-xs text-zinc-400">Allow recipe changes</span>
-          </label>
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox" checked={vals.allow_procurement_stock}
-              onChange={(e) => set("allow_procurement_stock", e.target.checked)}
-              className="accent-orange-500"
-            />
-            <span className="text-xs text-zinc-400">Allow procurement stock</span>
-          </label>
-        </div>
+      <div
+        style={{
+          display: "flex", flexDirection: "column", gap: 10,
+          padding: "14px 16px", borderRadius: 10,
+          background: "var(--bg-hover)", border: "1px solid var(--border-muted)",
+        }}
+      >
+        <Toggle label="Allow recipe changes"     checked={vals.allow_recipe_changes}     onChange={(v) => set("allow_recipe_changes", v)} />
+        <Toggle label="Allow procurement stock"  checked={vals.allow_procurement_stock}  onChange={(v) => set("allow_procurement_stock", v)} />
       </div>
 
       <button
         onClick={() => onSimulate(vals)}
         disabled={loading}
-        className="w-full py-2 bg-orange-600 hover:bg-orange-500 disabled:bg-zinc-700 text-white text-sm font-medium rounded-lg transition-colors"
+        style={{
+          padding: "11px", borderRadius: 10, cursor: loading ? "default" : "pointer",
+          background: loading ? "var(--bg-hover)" : "var(--accent)",
+          color: loading ? "var(--text-3)" : "#fff",
+          fontSize: 13, fontWeight: 500, border: "none",
+          transition: "background 0.2s ease",
+          letterSpacing: "0.01em",
+        }}
       >
         {loading ? "Simulating…" : "Run Scenario"}
       </button>

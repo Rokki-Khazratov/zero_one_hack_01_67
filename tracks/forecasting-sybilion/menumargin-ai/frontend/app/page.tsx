@@ -9,35 +9,63 @@ import { IngredientForecastChart } from "@/components/IngredientForecastChart";
 import { RecommendationCard } from "@/components/RecommendationCard";
 import { ScenarioControls, ScenarioValues } from "@/components/ScenarioControls";
 import { ReasoningPanel } from "@/components/ReasoningPanel";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+const API = process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000";
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <p style={{ fontSize: 10, fontWeight: 500, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-3)", marginBottom: 12 }}>
+      {children}
+    </p>
+  );
+}
+
+function LoadingSkeleton() {
+  return (
+    <div style={{ padding: "0 32px 48px", display: "flex", flexDirection: "column", gap: 32, marginTop: 32 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 12 }}>
+        {[0,1,2,3].map((i) => (
+          <div key={i} className="card shimmer" style={{ height: 100, animationDelay: `${i * 80}ms` }} />
+        ))}
+      </div>
+      <div className="card shimmer" style={{ height: 160 }} />
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+        <div className="card shimmer" style={{ height: 260 }} />
+        <div className="card shimmer" style={{ height: 260 }} />
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
-  const [analysis, setAnalysis] = useState<MenuAnalysis | null>(null);
-  const [recs, setRecs] = useState<Recommendation[]>([]);
-  const [forecasts, setForecasts] = useState<Record<string, IngredientForecast>>({});
-  const [scenario, setScenario] = useState<ScenarioResult | null>(null);
-  const [selectedDish, setSelectedDish] = useState<string | null>(null);
-  const [selectedIng, setSelectedIng] = useState<string>("olive_oil");
-  const [loading, setLoading] = useState(false);
+  const [analysis, setAnalysis]     = useState<MenuAnalysis | null>(null);
+  const [recs, setRecs]             = useState<Recommendation[]>([]);
+  const [forecasts, setForecasts]   = useState<Record<string, IngredientForecast>>({});
+  const [scenario, setScenario]     = useState<ScenarioResult | null>(null);
+  const [selectedDish, setDish]     = useState<string | null>(null);
+  const [selectedIng, setIng]       = useState<string>("olive_oil");
+  const [loading, setLoading]       = useState(false);
   const [scenarioLoading, setScenarioLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError]           = useState<string | null>(null);
 
-  useEffect(() => { loadData(); }, []);
+  useEffect(() => { load(); }, []);
 
-  async function loadData() {
+  async function load() {
     setLoading(true);
     setError(null);
     try {
-      const [menuData, recsData] = await Promise.all([analyzeMenu(), generateRecommendations()]);
-      if (menuData.detail) throw new Error(menuData.detail);
-      setAnalysis(menuData);
+      const [menu, recsData] = await Promise.all([analyzeMenu(), generateRecommendations()]);
+      if (menu.detail) throw new Error(menu.detail);
+      setAnalysis(menu);
       setRecs(recsData.recommendations ?? []);
-      setSelectedDish(menuData.dishes?.[0]?.dish ?? null);
+      setDish(menu.dishes?.[0]?.dish ?? null);
 
       const r = await fetch(`${API}/api/forecast/latest`);
-      const fData = await r.json();
-      setForecasts(fData.forecasts ?? {});
+      const fd = await r.json();
+      const fcs = fd.forecasts ?? {};
+      setForecasts(fcs);
+      if (!fcs["olive_oil"] && Object.keys(fcs).length > 0) setIng(Object.keys(fcs)[0]);
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {
@@ -45,7 +73,7 @@ export default function Home() {
     }
   }
 
-  async function handleScenario(sc: ScenarioValues) {
+  async function runScenario(sc: ScenarioValues) {
     setScenarioLoading(true);
     try {
       const result = await simulateScenario(sc);
@@ -55,80 +83,195 @@ export default function Home() {
     }
   }
 
-  const selectedDishData = analysis?.dishes.find((d) => d.dish === selectedDish) ?? null;
-  const selectedRec = recs.find((r) => r.dish === selectedDish) ?? null;
+  const dishData = analysis?.dishes.find((d) => d.dish === selectedDish) ?? null;
+  const dishRec  = recs.find((r) => r.dish === selectedDish) ?? null;
 
   return (
-    <main className="min-h-screen bg-black text-white font-sans">
-      <header className="border-b border-zinc-800 px-6 py-4 flex items-center justify-between">
-        <div>
-          <h1 className="text-lg font-bold text-white">MenuMargin AI</h1>
-          <p className="text-xs text-zinc-500">Italian Bistro · Ingredient cost forecast · 6-month horizon</p>
+    <div style={{ minHeight: "100vh", background: "var(--bg)", color: "var(--text-1)" }}>
+      {/* ── Navbar ───────────────────────────────────────────── */}
+      <header
+        style={{
+          position: "sticky", top: 0, zIndex: 50,
+          background: "var(--bg-card)",
+          borderBottom: "1px solid var(--border)",
+          padding: "0 32px",
+          height: 56,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        {/* Logo */}
+        <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+          <span
+            className="display"
+            style={{ fontSize: 20, fontWeight: 400, letterSpacing: "-0.02em", color: "var(--text-1)" }}
+          >
+            MenuMargin
+          </span>
+          <span
+            style={{
+              fontSize: 11, fontWeight: 600, letterSpacing: "0.08em",
+              textTransform: "uppercase", color: "var(--accent)", paddingBottom: 1,
+            }}
+          >
+            AI
+          </span>
         </div>
-        <button
-          onClick={loadData}
-          disabled={loading}
-          className="text-xs text-zinc-400 border border-zinc-700 px-3 py-1.5 rounded-lg hover:bg-zinc-800 transition-colors disabled:opacity-40"
-        >
-          {loading ? "Loading…" : "↻ Refresh"}
-        </button>
+
+        {/* Center breadcrumb */}
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <span style={{ fontSize: 12, color: "var(--text-3)" }}>Italian Bistro</span>
+          <span style={{ color: "var(--border)", fontSize: 12 }}>·</span>
+          <span style={{ fontSize: 12, color: "var(--text-3)" }}>6-month forecast</span>
+          {analysis && (
+            <>
+              <span style={{ color: "var(--border)", fontSize: 12 }}>·</span>
+              <span
+                className={`badge badge-${analysis.summary.dishes_at_risk > 0 ? "high" : "ok"}`}
+                style={{ fontSize: 10 }}
+              >
+                {analysis.summary.dishes_at_risk} at risk
+              </span>
+            </>
+          )}
+        </div>
+
+        {/* Actions */}
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <ThemeToggle />
+          <button
+            onClick={load}
+            disabled={loading}
+            style={{
+              fontSize: 12, padding: "6px 14px", borderRadius: 8, cursor: "pointer",
+              background: loading ? "var(--bg-hover)" : "var(--bg-hover)",
+              color: loading ? "var(--text-3)" : "var(--text-2)",
+              border: "1px solid var(--border)",
+              transition: "all 0.15s ease",
+            }}
+          >
+            {loading ? "Loading…" : "↻ Refresh"}
+          </button>
+        </div>
       </header>
 
+      {/* ── Error ────────────────────────────────────────────── */}
       {error && (
-        <div className="mx-6 mt-4 bg-red-900/30 border border-red-800 text-red-300 text-sm px-4 py-3 rounded-lg">
-          {error} — run <code className="bg-red-950 px-1 rounded">POST /api/forecast/run</code> first
+        <div
+          style={{
+            margin: "20px 32px 0",
+            padding: "12px 16px",
+            background: "var(--high-bg)",
+            border: "1px solid var(--high-fg)",
+            borderRadius: 10,
+            color: "var(--high-fg)",
+            fontSize: 13,
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+          }}
+        >
+          <span>⚠</span>
+          <span>{error}</span>
+          <code
+            style={{
+              fontFamily: "monospace", fontSize: 11,
+              background: "rgba(0,0,0,0.1)", padding: "2px 6px", borderRadius: 4,
+            }}
+          >
+            POST /api/forecast/run
+          </code>
         </div>
       )}
 
-      {loading && !analysis && (
-        <div className="flex items-center justify-center h-64 text-zinc-500 text-sm">Loading forecast data…</div>
-      )}
+      {/* ── Loading ───────────────────────────────────────────── */}
+      {loading && !analysis && <LoadingSkeleton />}
 
+      {/* ── Main ─────────────────────────────────────────────── */}
       {analysis && (
-        <div className="px-6 py-6 space-y-8">
+        <main style={{ padding: "32px 32px 64px", display: "flex", flexDirection: "column", gap: 40, maxWidth: 1400, margin: "0 auto" }}>
+
+          {/* Overview */}
           <section>
-            <h2 className="text-xs text-zinc-500 uppercase tracking-widest mb-3">Overview</h2>
+            <SectionLabel>Overview</SectionLabel>
             <SummaryCards summary={analysis.summary} />
           </section>
 
+          {/* Menu Risk */}
           <section>
-            <h2 className="text-xs text-zinc-500 uppercase tracking-widest mb-3">Menu Risk — click a dish to inspect</h2>
-            <MenuRiskTable dishes={analysis.dishes} recs={recs} onSelectDish={setSelectedDish} selectedDish={selectedDish} />
+            <SectionLabel>Menu Performance — select a dish to inspect</SectionLabel>
+            <MenuRiskTable
+              dishes={analysis.dishes}
+              recs={recs}
+              onSelectDish={setDish}
+              selectedDish={selectedDish}
+            />
           </section>
 
-          {selectedDishData && (
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <DishMarginChart dish={selectedDishData} />
-              {selectedRec && <RecommendationCard rec={selectedRec} />}
+          {/* Dish Analysis */}
+          {dishData && (
+            <section>
+              <SectionLabel>Dish Analysis</SectionLabel>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                <DishMarginChart dish={dishData} />
+                {dishRec && <RecommendationCard rec={dishRec} />}
+              </div>
             </section>
           )}
 
-          <section>
-            <div className="flex items-center gap-3 mb-3">
-              <h2 className="text-xs text-zinc-500 uppercase tracking-widest">Ingredient Forecasts</h2>
-              <div className="flex gap-1 flex-wrap">
-                {Object.keys(forecasts).map((ing) => (
-                  <button
-                    key={ing}
-                    onClick={() => setSelectedIng(ing)}
-                    className={`text-xs px-2 py-0.5 rounded-full border transition-colors ${
-                      selectedIng === ing ? "bg-orange-600 border-orange-500 text-white" : "border-zinc-700 text-zinc-400 hover:bg-zinc-800"
-                    }`}
-                  >
-                    {ing.replace("_", " ")}
-                  </button>
-                ))}
+          {/* Ingredient Forecasts */}
+          {Object.keys(forecasts).length > 0 && (
+            <section>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+                <SectionLabel>Ingredient Forecasts</SectionLabel>
+                <div style={{ display: "flex", gap: 5, flexWrap: "wrap", marginBottom: 12 }}>
+                  {Object.keys(forecasts).map((ing) => (
+                    <button
+                      key={ing}
+                      onClick={() => setIng(ing)}
+                      style={{
+                        fontSize: 11, padding: "4px 10px", borderRadius: 99,
+                        cursor: "pointer",
+                        background: selectedIng === ing ? "var(--accent)" : "var(--bg-hover)",
+                        color: selectedIng === ing ? "#fff" : "var(--text-2)",
+                        border: selectedIng === ing ? "1px solid var(--accent)" : "1px solid var(--border)",
+                        fontWeight: selectedIng === ing ? 600 : 400,
+                        transition: "all 0.15s ease",
+                        textTransform: "capitalize",
+                      }}
+                    >
+                      {ing.replace(/_/g, " ")}
+                    </button>
+                  ))}
+                </div>
               </div>
+              {forecasts[selectedIng] && (
+                <IngredientForecastChart forecast={forecasts[selectedIng]} />
+              )}
+            </section>
+          )}
+
+          {/* Scenario */}
+          <section>
+            <SectionLabel>Scenario Engine</SectionLabel>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+              <ScenarioControls onSimulate={runScenario} loading={scenarioLoading} />
+              <ReasoningPanel recs={recs} scenario={scenario} />
             </div>
-            {forecasts[selectedIng] && <IngredientForecastChart forecast={forecasts[selectedIng]} />}
           </section>
 
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <ScenarioControls onSimulate={handleScenario} loading={scenarioLoading} />
-            <ReasoningPanel recs={recs} scenario={scenario} />
-          </section>
-        </div>
+          {/* Footer */}
+          <footer style={{ borderTop: "1px solid var(--border)", paddingTop: 20 }}>
+            <p style={{ fontSize: 11, color: "var(--text-3)", lineHeight: 1.7 }}>
+              Ingredient cost histories reconstructed from Eurostat HICP indices and current price anchors.
+              Forecasts provided by <span style={{ color: "var(--text-2)" }}>Sybilion Forecasting API</span>.
+              For prototype and demonstration purposes.
+            </p>
+          </footer>
+
+        </main>
       )}
-    </main>
+    </div>
   );
 }
