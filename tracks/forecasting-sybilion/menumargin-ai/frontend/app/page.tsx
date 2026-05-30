@@ -9,6 +9,7 @@ import { DishMarginChart } from "@/components/DishMarginChart";
 import { IngredientForecastChart } from "@/components/IngredientForecastChart";
 import { ScenarioControls, ScenarioValues } from "@/components/ScenarioControls";
 import { ReasoningPanel } from "@/components/ReasoningPanel";
+import { StrategyPanel } from "@/components/StrategyPanel";
 import { Navigation } from "@/components/Navigation";
 
 const API = process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000";
@@ -241,6 +242,12 @@ export default function Home() {
               )}
             </section>
           )}
+
+          {/* Strategy Agent */}
+          <section>
+            <SectionLabel>Strategy Agent</SectionLabel>
+            <StrategyPanel />
+          </section>
 
           {/* Scenario */}
           <section>

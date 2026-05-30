@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .api import dataset, forecast, menu, recommendations, scenario, ingredients, dishes
+from .api import dataset, forecast, menu, recommendations, scenario, ingredients, dishes, strategy
 
 app = FastAPI(title="MenuMargin AI", version="0.1.0")
 
@@ -19,6 +19,7 @@ app.include_router(recommendations.router)
 app.include_router(scenario.router)
 app.include_router(ingredients.router)
 app.include_router(dishes.router)
+app.include_router(strategy.router)
 
 
 @app.get("/health")

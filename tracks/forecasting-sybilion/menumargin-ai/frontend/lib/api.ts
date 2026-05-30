@@ -108,3 +108,9 @@ export async function updateDish(id: string, data: object) {
 export async function deleteDish(id: string) {
   await fetch(`${BASE}/api/dishes/${id}`, { method: "DELETE" });
 }
+
+// ── Strategy Agent ───────────────────────────────────────────────────
+export async function runStrategy() {
+  const r = await fetch(`${BASE}/api/strategy/run`, { method: "POST" });
+  return r.json();
+}
