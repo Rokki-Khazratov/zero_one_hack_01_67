@@ -180,7 +180,7 @@ export default function Home() {
               background: "rgba(0,0,0,0.1)", padding: "2px 6px", borderRadius: 4,
             }}
           >
-            POST /api/forecast/run
+            check backend
           </code>
         </div>
       )}

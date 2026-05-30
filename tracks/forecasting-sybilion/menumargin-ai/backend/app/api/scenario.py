@@ -3,12 +3,9 @@ from pydantic import BaseModel
 from typing import Optional
 
 from ..services.scenario_engine import simulate_scenario
-from ..services.forecast_normalizer import normalize_forecast
-from ..services.sybilion_client import get_cached_forecast
+from ..services.schemas_helpers import load_all_normalized_forecasts
 
 router = APIRouter()
-INGREDIENTS = ["pasta", "tomatoes", "cheese", "olive_oil", "eggs", "flour"]
-
 
 class ScenarioRequest(BaseModel):
     target_margin: Optional[float] = None
@@ -20,19 +17,9 @@ class ScenarioRequest(BaseModel):
     demand_shock_percent: float = 0.0
     base_scenario: Optional[dict] = None
 
-
-def _load_normalized_forecasts() -> dict:
-    forecasts = {}
-    for ing in INGREDIENTS:
-        raw = get_cached_forecast(ing)
-        if raw:
-            forecasts[ing] = normalize_forecast(ing, raw)
-    return forecasts
-
-
 @router.post("/api/scenario/simulate")
 def simulate_scenario_endpoint(req: ScenarioRequest):
-    forecasts = _load_normalized_forecasts()
+    forecasts = load_all_normalized_forecasts()
     if not forecasts:
         raise HTTPException(status_code=404, detail="No forecasts available.")
     new_sc = req.model_dump(exclude={"base_scenario"})

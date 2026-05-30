@@ -9,7 +9,7 @@ export async function runForecasts(force = false) {
   const r = await fetch(`${BASE}/api/forecast/run`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ingredients: ["pasta","tomatoes","cheese","olive_oil","eggs","flour"], horizon_months: 6, force_refresh: force }),
+    body: JSON.stringify({ ingredients: ["pasta","tomatoes","cheese","olive_oil","eggs","flour","butter","cream","chicken","rice","wine","potatoes","sugar","coffee","milk","fish"], horizon_months: 6, force_refresh: force }),
   });
   return r.json();
 }
