@@ -47,7 +47,7 @@ uvicorn app.main:app --reload --port 8000
 
 First run — fetch data and trigger forecasts:
 ```bash
-curl -X POST http://localhost:8000/api/forecast/run
+curl -X POST http://127.0.0.1:8000/api/forecast/run
 ```
 
 ### Frontend
@@ -55,7 +55,7 @@ curl -X POST http://localhost:8000/api/forecast/run
 ```bash
 cd frontend
 npm install
-NEXT_PUBLIC_API_URL=http://localhost:8000 npm run dev
+NEXT_PUBLIC_API_URL=http://127.0.0.1:8000 npm run dev
 ```
 
 Open http://localhost:3000
@@ -65,7 +65,7 @@ Open http://localhost:3000
 | Var | Where | Notes |
 |---|---|---|
 | `SYBILION_API_TOKEN` | shell / .env | Sybilion SDK reads this |
-| `NEXT_PUBLIC_API_URL` | frontend .env.local | default: http://localhost:8000 |
+| `NEXT_PUBLIC_API_URL` | frontend .env.local | default: http://127.0.0.1:8000 |
 
 ## API endpoints
 

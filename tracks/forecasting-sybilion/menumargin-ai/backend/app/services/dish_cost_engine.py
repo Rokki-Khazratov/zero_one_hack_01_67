@@ -63,7 +63,10 @@ def forecast_dish_costs(normalized_forecasts: dict[str, dict]) -> dict[str, list
                 else:
                     # fallback: use current price
                     p = load_current_price(ing)
-                    exp += worst + best + p * grams / 1000.0
+                    component = p * grams / 1000.0
+                    exp += component
+                    worst += component
+                    best += component
             monthly.append({
                 "month": month,
                 "expected_cost":   round(exp, 4),
