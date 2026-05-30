@@ -176,7 +176,7 @@ export default function Home() {
           <span>{error}</span>
           <code
             style={{
-              fontFamily: "monospace", fontSize: 11,
+              fontFamily: "'SF Mono', ui-monospace, monospace", fontSize: 11,
               background: "rgba(0,0,0,0.1)", padding: "2px 6px", borderRadius: 4,
             }}
           >
