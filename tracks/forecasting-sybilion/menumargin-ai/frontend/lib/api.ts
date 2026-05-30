@@ -29,7 +29,7 @@ export async function generateRecommendations() {
   return r.json();
 }
 
-export async function simulateScenario(scenario: Record<string, unknown>) {
+export async function simulateScenario(scenario: object) {
   const r = await fetch(`${BASE}/api/scenario/simulate`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

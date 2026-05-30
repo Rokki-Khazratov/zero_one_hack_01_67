@@ -30,7 +30,7 @@ export function DishMarginChart({ dish }: { dish: DishAnalysis }) {
             width={45}
           />
           <Tooltip
-            formatter={(v: number) => `${v.toFixed(1)}%`}
+            formatter={(v: unknown) => typeof v === 'number' ? `${v.toFixed(1)}%` : String(v)}
             contentStyle={{ background: "#18181b", border: "1px solid #3f3f46", borderRadius: 8, fontSize: 12 }}
           />
           <Legend wrapperStyle={{ fontSize: 11, color: "#a1a1aa" }} />

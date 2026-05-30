@@ -1,7 +1,7 @@
 ingredient,current_price_per_kg,source,note
-pasta,2.20,manual_benchmark,average supermarket price AT/EU
-tomatoes,3.49,manual_benchmark,average supermarket price AT/EU
-cheese,9.90,manual_benchmark,mozzarella / cheese proxy
-olive_oil,11.50,manual_benchmark,converted from litre to kg approx
-eggs,5.00,manual_benchmark,converted to per-kg estimate (~18 eggs/kg)
-flour,1.40,manual_benchmark,average supermarket price AT/EU
+pasta,4.20,manual_benchmark,restaurant wholesale semolina pasta
+tomatoes,4.80,manual_benchmark,restaurant wholesale San Marzano tomatoes
+cheese,18.50,manual_benchmark,fresh mozzarella restaurant wholesale
+olive_oil,19.00,manual_benchmark,extra virgin olive oil restaurant wholesale
+eggs,9.50,manual_benchmark,free-range eggs restaurant wholesale per kg
+flour,2.80,manual_benchmark,tipo 00 flour restaurant wholesale
