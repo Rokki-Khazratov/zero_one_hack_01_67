@@ -1,2 +1,30 @@
 .env
+.env.local
+.env.production
 ideas.md
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# IDE
+.playwright-mcp/
+opencode.json
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+.next/
+out/
+
+# Data (keep configs, skip generated)
+data/db/*.json
+!data/db/.gitkeep
