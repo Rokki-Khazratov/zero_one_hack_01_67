@@ -37,3 +37,74 @@ export async function simulateScenario(scenario: object) {
   });
   return r.json();
 }
+
+// ── Ingredients ──────────────────────────────────────────────────────
+export async function getIngredients() {
+  const r = await fetch(`${BASE}/api/ingredients`);
+  return r.json();
+}
+
+export async function getIngredientCatalog() {
+  const r = await fetch(`${BASE}/api/ingredients/catalog`);
+  return r.json();
+}
+
+export async function createIngredient(data: object) {
+  const r = await fetch(`${BASE}/api/ingredients`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return r.json();
+}
+
+export async function updateIngredient(id: string, data: object) {
+  const r = await fetch(`${BASE}/api/ingredients/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return r.json();
+}
+
+export async function deleteIngredient(id: string) {
+  await fetch(`${BASE}/api/ingredients/${id}`, { method: "DELETE" });
+}
+
+export async function triggerFetchHistory(id: string) {
+  const r = await fetch(`${BASE}/api/ingredients/${id}/fetch-history`, { method: "POST" });
+  return r.json();
+}
+
+// ── Dishes ───────────────────────────────────────────────────────────
+export async function getDishes() {
+  const r = await fetch(`${BASE}/api/dishes`);
+  return r.json();
+}
+
+export async function getDish(id: string) {
+  const r = await fetch(`${BASE}/api/dishes/${id}`);
+  return r.json();
+}
+
+export async function createDish(data: object) {
+  const r = await fetch(`${BASE}/api/dishes`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return r.json();
+}
+
+export async function updateDish(id: string, data: object) {
+  const r = await fetch(`${BASE}/api/dishes/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return r.json();
+}
+
+export async function deleteDish(id: string) {
+  await fetch(`${BASE}/api/dishes/${id}`, { method: "DELETE" });
+}

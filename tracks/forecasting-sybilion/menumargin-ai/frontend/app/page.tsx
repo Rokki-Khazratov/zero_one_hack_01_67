@@ -9,7 +9,7 @@ import { IngredientForecastChart } from "@/components/IngredientForecastChart";
 import { RecommendationCard } from "@/components/RecommendationCard";
 import { ScenarioControls, ScenarioValues } from "@/components/ScenarioControls";
 import { ReasoningPanel } from "@/components/ReasoningPanel";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { Navigation } from "@/components/Navigation";
 
 const API = process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000";
 
@@ -88,73 +88,7 @@ export default function Home() {
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg)", color: "var(--text-1)" }}>
-      {/* ── Navbar ───────────────────────────────────────────── */}
-      <header
-        style={{
-          position: "sticky", top: 0, zIndex: 50,
-          background: "var(--bg-card)",
-          borderBottom: "1px solid var(--border)",
-          padding: "0 32px",
-          height: 56,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        {/* Logo */}
-        <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
-          <span
-            className="display"
-            style={{ fontSize: 20, fontWeight: 400, letterSpacing: "-0.02em", color: "var(--text-1)" }}
-          >
-            MenuMargin
-          </span>
-          <span
-            style={{
-              fontSize: 11, fontWeight: 600, letterSpacing: "0.08em",
-              textTransform: "uppercase", color: "var(--accent)", paddingBottom: 1,
-            }}
-          >
-            AI
-          </span>
-        </div>
-
-        {/* Center breadcrumb */}
-        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          <span style={{ fontSize: 12, color: "var(--text-3)" }}>Italian Bistro</span>
-          <span style={{ color: "var(--border)", fontSize: 12 }}>·</span>
-          <span style={{ fontSize: 12, color: "var(--text-3)" }}>6-month forecast</span>
-          {analysis && (
-            <>
-              <span style={{ color: "var(--border)", fontSize: 12 }}>·</span>
-              <span
-                className={`badge badge-${analysis.summary.dishes_at_risk > 0 ? "high" : "ok"}`}
-                style={{ fontSize: 10 }}
-              >
-                {analysis.summary.dishes_at_risk} at risk
-              </span>
-            </>
-          )}
-        </div>
-
-        {/* Actions */}
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <ThemeToggle />
-          <button
-            onClick={load}
-            disabled={loading}
-            style={{
-              fontSize: 12, padding: "6px 14px", borderRadius: 8, cursor: "pointer",
-              background: loading ? "var(--bg-hover)" : "var(--bg-hover)",
-              color: loading ? "var(--text-3)" : "var(--text-2)",
-              border: "1px solid var(--border)",
-              transition: "all 0.15s ease",
-            }}
-          >
-            {loading ? "Loading…" : "↻ Refresh"}
-          </button>
-        </div>
-      </header>
+      <Navigation onRefresh={load} loading={loading} />
 
       {/* ── Error ────────────────────────────────────────────── */}
       {error && (

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "margherita_pizza",
+    "name": "Margherita Pizza",
+    "current_price_eur": 12.9,
+    "target_margin": 0.65,
+    "ingredients": [
+      {
+        "ingredient_id": "tomatoes",
+        "grams": 180
+      },
+      {
+        "ingredient_id": "cheese",
+        "grams": 160
+      },
+      {
+        "ingredient_id": "flour",
+        "grams": 220
+      },
+      {
+        "ingredient_id": "olive_oil",
+        "grams": 25
+      }
+    ]
+  },
+  {
+    "id": "pasta_pomodoro",
+    "name": "Pasta Pomodoro",
+    "current_price_eur": 11.9,
+    "target_margin": 0.64,
+    "ingredients": [
+      {
+        "ingredient_id": "pasta",
+        "grams": 180
+      },
+      {
+        "ingredient_id": "tomatoes",
+        "grams": 220
+      },
+      {
+        "ingredient_id": "olive_oil",
+        "grams": 30
+      }
+    ]
+  },
+  {
+    "id": "carbonara",
+    "name": "Carbonara",
+    "current_price_eur": 14.5,
+    "target_margin": 0.65,
+    "ingredients": [
+      {
+        "ingredient_id": "pasta",
+        "grams": 180
+      },
+      {
+        "ingredient_id": "cheese",
+        "grams": 90
+      },
+      {
+        "ingredient_id": "eggs",
+        "grams": 120
+      }
+    ]
+  }
+]
