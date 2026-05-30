@@ -1,0 +1,32 @@
+{
+  "pasta": [
+    "pasta price", "wheat price", "durum wheat", "grain harvest",
+    "fertilizer prices", "energy costs", "semolina", "cereals",
+    "Italian food prices", "food inflation EU"
+  ],
+  "tomatoes": [
+    "tomato price", "fresh vegetable price", "Mediterranean harvest",
+    "seasonal produce", "greenhouse energy", "food inflation",
+    "EU vegetable prices", "fresh produce supply"
+  ],
+  "cheese": [
+    "cheese price", "dairy price", "mozzarella", "milk price",
+    "dairy production", "feed costs", "energy costs",
+    "Italian cheese", "EU dairy market"
+  ],
+  "olive_oil": [
+    "olive oil price", "Mediterranean drought", "Spain olive production",
+    "Italy olive harvest", "extra virgin olive oil", "cooking oil price",
+    "energy costs", "transport costs", "EU HICP food"
+  ],
+  "eggs": [
+    "egg price", "poultry price", "avian influenza", "feed costs",
+    "egg production EU", "protein food prices", "baking ingredients",
+    "livestock feed"
+  ],
+  "flour": [
+    "flour price", "wheat price", "bread price", "grain market",
+    "milling industry", "cereal harvest", "energy costs",
+    "baking ingredients", "food commodity"
+  ]
+}

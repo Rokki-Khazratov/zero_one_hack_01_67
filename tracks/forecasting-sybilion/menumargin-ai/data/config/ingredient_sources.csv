@@ -1,0 +1,7 @@
+ingredient,source,coicop,geo,source_type,proxy_description
+pasta,Eurostat,CP01116,EU27_2020,index_reconstructed,Pasta products and couscous
+tomatoes,Eurostat,CP01171,EU27_2020,index_reconstructed,Fresh vegetables proxy
+cheese,Eurostat,CP01144,EU27_2020,index_reconstructed,Cheese and curd
+olive_oil,Eurostat,CP01153,EU27_2020,index_reconstructed,Olive oil
+eggs,Eurostat,CP01147,EU27_2020,index_reconstructed,Eggs
+flour,Eurostat,CP01112,EU27_2020,index_reconstructed,Flours and cereals
