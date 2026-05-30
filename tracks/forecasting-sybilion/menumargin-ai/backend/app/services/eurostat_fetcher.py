@@ -9,6 +9,16 @@ INGREDIENT_COICOP = {
     "olive_oil": "CP01153",
     "eggs":      "CP01147",
     "flour":     "CP01112",
+    "butter":    "CP01151",
+    "cream":     "CP01152",
+    "chicken":   "CP01122",
+    "rice":      "CP01115",
+    "wine":      "CP02121",
+    "potatoes":  "CP01174",
+    "sugar":     "CP01181",
+    "coffee":    "CP01121",
+    "milk":      "CP01141",
+    "fish":      "CP01132",
 }
 
 DRIVER_COICOP = {

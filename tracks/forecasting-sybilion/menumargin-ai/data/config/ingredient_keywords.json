@@ -28,5 +28,55 @@
     "flour price", "wheat price", "bread price", "grain market",
     "milling industry", "cereal harvest", "energy costs",
     "baking ingredients", "food commodity"
+  ],
+  "butter": [
+    "butter price", "dairy price", "cream price", "milk fat",
+    "EU butter market", "dairy production", "energy costs",
+    "baking ingredients", "restaurant supply"
+  ],
+  "cream": [
+    "cream price", "dairy price", "heavy cream", "milk products",
+    "EU dairy market", "restaurant supply", "cooking cream",
+    "food inflation"
+  ],
+  "chicken": [
+    "chicken price", "poultry price", "meat price EU", "feed costs",
+    "chicken breast", "poultry production", "avian influenza",
+    "protein food prices", "restaurant wholesale"
+  ],
+  "rice": [
+    "rice price", "arborio rice", "grain price", "risotto rice",
+    "cereal market", "Asian imports", "food inflation",
+    "Italian cuisine", "wholesale grain"
+  ],
+  "wine": [
+    "wine price", "cooking wine", "Italian wine", "wine production",
+    "grape harvest", "EU wine market", "restaurant supply",
+    "alcohol prices", "beverage costs"
+  ],
+  "potatoes": [
+    "potato price", "fresh vegetable price", "root vegetable",
+    "potato harvest EU", "starch market", "food inflation",
+    "restaurant wholesale", "bulk potatoes"
+  ],
+  "sugar": [
+    "sugar price", "sugar market", "beet sugar", "EU sugar prices",
+    "food commodity", "baking ingredients", "confectionery",
+    "sugar production", "wholesale sugar"
+  ],
+  "coffee": [
+    "coffee price", "coffee beans", "arabica price", "robusta price",
+    "coffee market", "EU coffee imports", "cafe supply",
+    "beverage costs", "commodity prices"
+  ],
+  "milk": [
+    "milk price", "dairy price", "whole milk", "EU milk production",
+    "dairy market", "farm gate milk price", "restaurant supply",
+    "beverage costs", "food inflation"
+  ],
+  "fish": [
+    "fish price", "seafood price", "fresh fish", "fish market EU",
+    "aquaculture", "fish imports", "restaurant wholesale",
+    "sea bass", "Mediterranean fish"
   ]
 }

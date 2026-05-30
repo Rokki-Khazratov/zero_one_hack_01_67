@@ -16,6 +16,16 @@ INGREDIENT_TITLES = {
     "olive_oil": "Olive Oil Consumer Price Index EU Monthly",
     "eggs":      "Eggs Consumer Price Index EU Monthly",
     "flour":     "Flours and Cereals Consumer Price Index EU Monthly",
+    "butter":    "Butter Consumer Price Index EU Monthly",
+    "cream":     "Cream and Other Milk Products Consumer Price Index EU Monthly",
+    "chicken":   "Poultry Consumer Price Index EU Monthly",
+    "rice":      "Rice Consumer Price Index EU Monthly",
+    "wine":      "Wine Consumer Price Index EU Monthly",
+    "potatoes":  "Potatoes and Dried Vegetables Consumer Price Index EU Monthly",
+    "sugar":     "Sugar Consumer Price Index EU Monthly",
+    "coffee":    "Coffee and Tea Consumer Price Index EU Monthly",
+    "milk":      "Milk Consumer Price Index EU Monthly",
+    "fish":      "Fish and Seafood Consumer Price Index EU Monthly",
 }
 
 

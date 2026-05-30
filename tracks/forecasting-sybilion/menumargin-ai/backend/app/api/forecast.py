@@ -10,7 +10,9 @@ from ..services.forecast_normalizer import normalize_forecast
 from ..services.schemas_helpers import load_keywords
 
 router = APIRouter()
-INGREDIENTS = ["pasta", "tomatoes", "cheese", "olive_oil", "eggs", "flour"]
+INGREDIENTS = ["pasta", "tomatoes", "cheese", "olive_oil", "eggs", "flour",
+               "butter", "cream", "chicken", "rice", "wine", "potatoes",
+               "sugar", "coffee", "milk", "fish"]
 
 
 class ForecastRunRequest(BaseModel):

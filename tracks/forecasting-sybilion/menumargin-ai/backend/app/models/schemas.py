@@ -81,7 +81,9 @@ class MenuAnalysisResponse(BaseModel):
 
 
 class ForecastRunRequest(BaseModel):
-    ingredients: list[str] = ["pasta", "tomatoes", "cheese", "olive_oil", "eggs", "flour"]
+    ingredients: list[str] = ["pasta", "tomatoes", "cheese", "olive_oil", "eggs", "flour",
+                               "butter", "cream", "chicken", "rice", "wine", "potatoes",
+                               "sugar", "coffee", "milk", "fish"]
     horizon_months: int = 6
 
 
