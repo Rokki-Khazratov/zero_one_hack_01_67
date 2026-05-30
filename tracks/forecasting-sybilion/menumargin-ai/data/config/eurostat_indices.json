@@ -1,0 +1,102 @@
+{
+  "pasta": {
+    "index": 136.82,
+    "date": "2025-12"
+  },
+  "flour": {
+    "index": 138.59,
+    "date": "2025-12"
+  },
+  "bread": {
+    "index": 150.76,
+    "date": "2025-12"
+  },
+  "rice": {
+    "index": 145.89,
+    "date": "2025-12"
+  },
+  "beef": {
+    "index": 153.64,
+    "date": "2025-12"
+  },
+  "pork": {
+    "index": 148.82,
+    "date": "2025-12"
+  },
+  "chicken": {
+    "index": 147.12,
+    "date": "2025-12"
+  },
+  "lamb": {
+    "index": 162.92,
+    "date": "2025-12"
+  },
+  "fish": {
+    "index": 142.45,
+    "date": "2025-12"
+  },
+  "milk": {
+    "index": 153.93,
+    "date": "2025-12"
+  },
+  "cheese": {
+    "index": 141.77,
+    "date": "2025-12"
+  },
+  "eggs": {
+    "index": 170.52,
+    "date": "2025-12"
+  },
+  "butter": {
+    "index": 164.95,
+    "date": "2025-12"
+  },
+  "cream": {
+    "index": 144.71,
+    "date": "2025-12"
+  },
+  "olive_oil": {
+    "index": 143.12,
+    "date": "2025-12"
+  },
+  "other_oils": {
+    "index": 143.86,
+    "date": "2025-12"
+  },
+  "tomatoes": {
+    "index": 149.94,
+    "date": "2025-12"
+  },
+  "potatoes": {
+    "index": 146.98,
+    "date": "2025-12"
+  },
+  "fruit": {
+    "index": 149.13,
+    "date": "2025-12"
+  },
+  "sugar": {
+    "index": 136.36,
+    "date": "2025-12"
+  },
+  "coffee": {
+    "index": 153.91,
+    "date": "2025-12"
+  },
+  "chocolate": {
+    "index": 163.49,
+    "date": "2025-12"
+  },
+  "salt": {
+    "index": 148.19,
+    "date": "2025-12"
+  },
+  "wine": {
+    "index": 125.48,
+    "date": "2025-12"
+  },
+  "beer": {
+    "index": 120.99,
+    "date": "2025-12"
+  }
+}

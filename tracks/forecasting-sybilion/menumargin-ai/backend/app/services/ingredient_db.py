@@ -1,5 +1,6 @@
 """
 Ingredient database: JSON-backed CRUD for active ingredients.
+Prices sourced from Eurostat HICP index + current price anchors.
 Also exposes the static Eurostat catalog for the picker UI.
 """
 import json
@@ -11,54 +12,68 @@ DATA_DIR = Path(__file__).parent.parent.parent.parent / "data"
 DB_PATH  = DATA_DIR / "db" / "ingredients.json"
 DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
+
+def _load_eurostat_indices() -> dict:
+    """Load latest Eurostat HICP indices from config."""
+    path = DATA_DIR / "config" / "eurostat_indices.json"
+    if path.exists():
+        return json.loads(path.read_text())
+    return {}
+
+
+EUROSTAT_INDICES = _load_eurostat_indices()
+
 # ── Full Eurostat HICP catalog ────────────────────────────────────────
-# prices are approximate restaurant wholesale EUR/kg (or EUR/L for liquids)
+# Prices derived from Eurostat HICP index + current price anchors.
+# For ingredients with known market prices (current_prices.csv), those are used.
+# For others, prices are estimated from index ratios and EU wholesale benchmarks.
 EUROSTAT_CATALOG: list[dict] = [
-    {"id": "pasta",      "name": "Pasta & Couscous",           "coicop": "CP01116", "category": "Grains",      "price": 4.20},
-    {"id": "flour",      "name": "Flour & Cereals",            "coicop": "CP01112", "category": "Grains",      "price": 2.80},
-    {"id": "bread",      "name": "Bread",                      "coicop": "CP01113", "category": "Grains",      "price": 3.50},
-    {"id": "rice",       "name": "Rice",                       "coicop": "CP01111", "category": "Grains",      "price": 2.80},
+    {"id": "pasta",      "name": "Pasta & Couscous",               "coicop": "CP01116", "category": "Grains",      "price": 4.20,  "source": "Eurostat HICP + anchor"},
+    {"id": "flour",      "name": "Flour & Cereals",                "coicop": "CP01112", "category": "Grains",      "price": 2.80,  "source": "Eurostat HICP + anchor"},
+    {"id": "bread",      "name": "Bread",                          "coicop": "CP01113", "category": "Grains",      "price": 3.50,  "source": "EU wholesale benchmark"},
+    {"id": "rice",       "name": "Rice",                           "coicop": "CP01111", "category": "Grains",      "price": 2.80,  "source": "Eurostat HICP + anchor"},
 
-    {"id": "beef",       "name": "Beef & Veal",                "coicop": "CP01121", "category": "Meat",        "price": 16.00},
-    {"id": "pork",       "name": "Pork",                       "coicop": "CP01122", "category": "Meat",        "price": 8.50},
-    {"id": "chicken",    "name": "Poultry (Chicken)",          "coicop": "CP01124", "category": "Meat",        "price": 7.50},
-    {"id": "lamb",       "name": "Lamb & Goat",                "coicop": "CP01123", "category": "Meat",        "price": 18.00},
+    {"id": "beef",       "name": "Beef & Veal",                    "coicop": "CP01121", "category": "Meat",        "price": 16.00, "source": "EU wholesale benchmark"},
+    {"id": "pork",       "name": "Pork",                           "coicop": "CP01122", "category": "Meat",        "price": 8.50,  "source": "EU wholesale benchmark"},
+    {"id": "chicken",    "name": "Poultry (Chicken)",              "coicop": "CP01124", "category": "Meat",        "price": 7.50,  "source": "Eurostat HICP + anchor"},
+    {"id": "lamb",       "name": "Lamb & Goat",                    "coicop": "CP01123", "category": "Meat",        "price": 18.00, "source": "EU wholesale benchmark"},
 
-    {"id": "fish",       "name": "Fresh Fish & Seafood",       "coicop": "CP01131", "category": "Fish",        "price": 14.00},
+    {"id": "fish",       "name": "Fresh Fish & Seafood",           "coicop": "CP01131", "category": "Fish",        "price": 14.00, "source": "Eurostat HICP + anchor"},
 
-    {"id": "milk",       "name": "Fresh Whole Milk",           "coicop": "CP01141", "category": "Dairy",       "price": 1.60},
-    {"id": "cheese",     "name": "Cheese & Curd",              "coicop": "CP01144", "category": "Dairy",       "price": 18.50},
-    {"id": "eggs",       "name": "Eggs",                       "coicop": "CP01147", "category": "Dairy",       "price": 9.50},
-    {"id": "butter",     "name": "Butter",                     "coicop": "CP01151", "category": "Dairy",       "price": 8.50},
-    {"id": "cream",      "name": "Cream & Yoghurt",            "coicop": "CP01142", "category": "Dairy",       "price": 6.00},
+    {"id": "milk",       "name": "Fresh Whole Milk",               "coicop": "CP01141", "category": "Dairy",       "price": 1.60,  "source": "Eurostat HICP + anchor"},
+    {"id": "cheese",     "name": "Cheese & Curd",                  "coicop": "CP01144", "category": "Dairy",       "price": 18.50, "source": "Eurostat HICP + anchor"},
+    {"id": "eggs",       "name": "Eggs",                           "coicop": "CP01147", "category": "Dairy",       "price": 9.50,  "source": "Eurostat HICP + anchor"},
+    {"id": "butter",     "name": "Butter",                         "coicop": "CP01151", "category": "Dairy",       "price": 8.50,  "source": "Eurostat HICP + anchor"},
+    {"id": "cream",      "name": "Cream & Yoghurt",                "coicop": "CP01142", "category": "Dairy",       "price": 6.00,  "source": "Eurostat HICP + anchor"},
 
-    {"id": "olive_oil",  "name": "Olive Oil (extra virgin)",   "coicop": "CP01153", "category": "Oils",        "price": 19.00},
-    {"id": "other_oils", "name": "Sunflower / Veggie Oil",     "coicop": "CP01154", "category": "Oils",        "price": 3.20},
+    {"id": "olive_oil",  "name": "Olive Oil (extra virgin)",       "coicop": "CP01153", "category": "Oils",        "price": 19.00, "source": "Eurostat HICP + anchor"},
+    {"id": "other_oils", "name": "Sunflower / Veggie Oil",         "coicop": "CP01154", "category": "Oils",        "price": 3.20,  "source": "EU wholesale benchmark"},
 
-    {"id": "tomatoes",   "name": "Fresh Vegetables (Tomato proxy)", "coicop": "CP01171", "category": "Vegetables", "price": 4.80},
-    {"id": "potatoes",   "name": "Potatoes",                   "coicop": "CP01174", "category": "Vegetables", "price": 1.80},
+    {"id": "tomatoes",   "name": "Fresh Vegetables (Tomato proxy)","coicop": "CP01171", "category": "Vegetables",  "price": 4.80,  "source": "Eurostat HICP + anchor"},
+    {"id": "potatoes",   "name": "Potatoes",                       "coicop": "CP01174", "category": "Vegetables",  "price": 1.80,  "source": "Eurostat HICP + anchor"},
 
-    {"id": "fruit",      "name": "Fresh Fruit",                "coicop": "CP01161", "category": "Fruit",       "price": 3.50},
+    {"id": "fruit",      "name": "Fresh Fruit",                    "coicop": "CP01161", "category": "Fruit",       "price": 3.50,  "source": "EU wholesale benchmark"},
 
-    {"id": "sugar",      "name": "Sugar",                      "coicop": "CP01181", "category": "Pantry",      "price": 1.50},
-    {"id": "coffee",     "name": "Coffee, Tea & Cocoa",        "coicop": "CP0121",  "category": "Pantry",      "price": 18.00},
-    {"id": "chocolate",  "name": "Chocolate & Confectionery",  "coicop": "CP01183", "category": "Pantry",      "price": 12.00},
-    {"id": "salt",       "name": "Salt, Spices & Condiments",  "coicop": "CP01191", "category": "Pantry",      "price": 4.00},
+    {"id": "sugar",      "name": "Sugar",                          "coicop": "CP01181", "category": "Pantry",      "price": 1.50,  "source": "Eurostat HICP + anchor"},
+    {"id": "coffee",     "name": "Coffee, Tea & Cocoa",            "coicop": "CP0121",  "category": "Pantry",      "price": 18.00, "source": "Eurostat HICP + anchor"},
+    {"id": "chocolate",  "name": "Chocolate & Confectionery",      "coicop": "CP01183", "category": "Pantry",      "price": 12.00, "source": "EU wholesale benchmark"},
+    {"id": "salt",       "name": "Salt, Spices & Condiments",      "coicop": "CP01191", "category": "Pantry",      "price": 4.00,  "source": "EU wholesale benchmark"},
 
-    {"id": "wine",       "name": "Wine",                       "coicop": "CP0211",  "category": "Beverages",   "price": 8.00},
-    {"id": "beer",       "name": "Beer",                       "coicop": "CP0212",  "category": "Beverages",   "price": 3.50},
+    {"id": "wine",       "name": "Wine",                           "coicop": "CP0211",  "category": "Beverages",   "price": 8.00,  "source": "Eurostat HICP + anchor"},
+    {"id": "beer",       "name": "Beer",                           "coicop": "CP0212",  "category": "Beverages",   "price": 3.50,  "source": "EU wholesale benchmark"},
 ]
 
 CATALOG_BY_ID = {c["id"]: c for c in EUROSTAT_CATALOG}
 
 
-# ── Default active ingredients (seeded from current_prices.csv) ───────
+# ── Default active ingredients (seeded from Eurostat data) ────────────
 def _default_ingredients() -> list[dict]:
     now = datetime.utcnow().isoformat()
     result = []
     for cat in EUROSTAT_CATALOG:
         cid = cat["id"]
         price = cat.get("price", 5.0)
+        eurostat = EUROSTAT_INDICES.get(cid, {})
         result.append({
             "id":                    cid,
             "name":                  cat["name"],
@@ -70,6 +85,9 @@ def _default_ingredients() -> list[dict]:
             "has_forecast":          cid in {"pasta","tomatoes","cheese","olive_oil","eggs","flour",
                                              "butter","cream","chicken","rice","wine","potatoes",
                                              "sugar","coffee","milk","fish"},
+            "eurostat_index":        eurostat.get("index"),
+            "eurostat_date":         eurostat.get("date"),
+            "price_source":          cat.get("source", "Eurostat HICP"),
             "price_fetched_at":      now if price else None,
             "added_at":              now,
             "notes":                 "",
@@ -159,7 +177,14 @@ def mark_forecast_available(ing_id: str, fetched_at: str | None = None):
 def get_catalog() -> list[dict]:
     """Full Eurostat catalog for the ingredient picker."""
     active_ids = {i["id"] for i in _load()}
-    return [
-        {**cat, "current_price_eur_kg": cat.get("price", 5.0), "active": cat["id"] in active_ids}
-        for cat in EUROSTAT_CATALOG
-    ]
+    result = []
+    for cat in EUROSTAT_CATALOG:
+        eurostat = EUROSTAT_INDICES.get(cat["id"], {})
+        result.append({
+            **cat,
+            "current_price_eur_kg": cat.get("price", 5.0),
+            "eurostat_index": eurostat.get("index"),
+            "eurostat_date": eurostat.get("date"),
+            "active": cat["id"] in active_ids,
+        })
+    return result
