@@ -5,12 +5,12 @@
 
 /* ─── Design Tokens ──────────────────────────────────────────────── */
 :root {
-  --bg:           #F8F7F4;
-  --bg-card:      #FFFFFF;
-  --bg-hover:     #F2EFE8;
-  --bg-selected:  #EAE6DC;
-  --border:       #E4E0D8;
-  --border-muted: #EDE9E2;
+  --bg:           #F3EDE4;
+  --bg-card:      #FAF7F2;
+  --bg-hover:     #EDE6DA;
+  --bg-selected:  #E5DDD0;
+  --border:       #DDD6CA;
+  --border-muted: #E8E1D5;
 
   --text-1:  #1A1714;
   --text-2:  #6B665D;

@@ -36,8 +36,12 @@ export function IngredientForecastChart({
 }) {
   const { theme } = useTheme();
   const isDark = theme === "dark";
-  const gridColor = isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)";
-  const axisColor = isDark ? "#5A5550" : "#A8A39A";
+  const gridColor  = isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.04)";
+  const axisColor  = isDark ? "#5A5550" : "#A8A39A";
+  const accentColor = isDark ? "#D4733C" : "#B85C38";
+  const histColor   = isDark ? "#7BA4CC" : "#6B8EAE";
+  const bandColor   = isDark ? "rgba(212,115,60,0.18)" : "rgba(184,92,56,0.12)";
+  const maskColor   = isDark ? "#0E0D0B" : "#FAFAF7";
 
   const histData = (historicalPrices ?? []).map((p) => ({
     date: p.date.slice(0, 7),
@@ -98,35 +102,10 @@ export function IngredientForecastChart({
             width={42}
           />
           <Tooltip content={<CustomTooltip />} />
-          <Area
-            dataKey="upper_band"
-            stroke="none"
-            fill="var(--chart-forecast)"
-            fillOpacity={0.12}
-            name="Band"
-          />
-          <Area
-            dataKey="lower_band"
-            stroke="none"
-            fill="var(--bg-card)"
-            fillOpacity={1}
-            name="Band"
-          />
-          <Line
-            dataKey="Historical"
-            stroke="var(--chart-hist)"
-            dot={false}
-            strokeWidth={2}
-            name="Historical"
-          />
-          <Line
-            dataKey="Forecast"
-            stroke="var(--chart-forecast)"
-            dot={false}
-            strokeWidth={2}
-            strokeDasharray="5 3"
-            name="Forecast"
-          />
+          <Area dataKey="upper_band" stroke="none" fill={bandColor}  fillOpacity={1} name="Band" />
+          <Area dataKey="lower_band" stroke="none" fill={maskColor}  fillOpacity={1} name="Band" />
+          <Line dataKey="Historical" stroke={histColor}   dot={false} strokeWidth={2} name="Historical" />
+          <Line dataKey="Forecast"   stroke={accentColor} dot={false} strokeWidth={2} strokeDasharray="5 3" name="Forecast" />
         </ComposedChart>
       </ResponsiveContainer>
 

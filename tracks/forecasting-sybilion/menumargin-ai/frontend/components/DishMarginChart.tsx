@@ -35,8 +35,12 @@ export function DishMarginChart({ dish }: { dish: DishAnalysis }) {
     Best:       +(m.best_case_margin  * 100).toFixed(2),
   }));
   const targetPct = +(dish.target_margin * 100).toFixed(1);
-  const gridColor  = isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)";
-  const axisColor  = isDark ? "#5A5550" : "#A8A39A";
+  const gridColor   = isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)";
+  const axisColor   = isDark ? "#5A5550" : "#A8A39A";
+  const accentColor = isDark ? "#D4733C" : "#B85C38";
+  const okColor     = isDark ? "#4ADE80" : "#166534";
+  const highColor   = isDark ? "#F87171" : "#991B1B";
+  const refColor    = isDark ? "#F87171" : "#DC2626";
 
   return (
     <div className="card" style={{ padding: "20px 20px 16px" }}>
@@ -65,14 +69,14 @@ export function DishMarginChart({ dish }: { dish: DishAnalysis }) {
           <Tooltip content={<CustomTooltip />} />
           <ReferenceLine
             y={targetPct}
-            stroke="var(--chart-ref)"
+            stroke={refColor}
             strokeDasharray="3 3"
             strokeWidth={1}
-            label={{ value: `${targetPct}%`, fill: "var(--chart-ref)", fontSize: 9, position: "right" }}
+            label={{ value: `${targetPct}%`, fill: refColor, fontSize: 9, position: "right" }}
           />
-          <Line dataKey="Best"     stroke="var(--ok-fg)"   dot={false} strokeWidth={1.5} strokeOpacity={0.6} />
-          <Line dataKey="Expected" stroke="var(--accent)"  dot={false} strokeWidth={2} />
-          <Line dataKey="Worst"    stroke="var(--high-fg)" dot={false} strokeWidth={1.5} strokeDasharray="3 2" strokeOpacity={0.7} />
+          <Line dataKey="Best"     stroke={okColor}     dot={false} strokeWidth={1.5} strokeOpacity={0.7} />
+          <Line dataKey="Expected" stroke={accentColor} dot={false} strokeWidth={2} />
+          <Line dataKey="Worst"    stroke={highColor}   dot={false} strokeWidth={1.5} strokeDasharray="3 2" strokeOpacity={0.8} />
         </LineChart>
       </ResponsiveContainer>
 
