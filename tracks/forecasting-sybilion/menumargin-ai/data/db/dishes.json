@@ -7,19 +7,23 @@
     "ingredients": [
       {
         "ingredient_id": "tomatoes",
-        "grams": 180
+        "grams": 180.0
       },
       {
         "ingredient_id": "cheese",
-        "grams": 160
+        "grams": 160.0
       },
       {
         "ingredient_id": "flour",
-        "grams": 220
+        "grams": 220.0
       },
       {
         "ingredient_id": "olive_oil",
-        "grams": 25
+        "grams": 25.0
+      },
+      {
+        "ingredient_id": "rice",
+        "grams": 100.0
       }
     ]
   },
@@ -60,6 +64,34 @@
       {
         "ingredient_id": "eggs",
         "grams": 120
+      }
+    ]
+  },
+  {
+    "id": "burger",
+    "name": "Burger",
+    "current_price_eur": 12.0,
+    "target_margin": 0.65,
+    "ingredients": [
+      {
+        "ingredient_id": "bread",
+        "grams": 200.0
+      },
+      {
+        "ingredient_id": "beef",
+        "grams": 100.0
+      },
+      {
+        "ingredient_id": "olive_oil",
+        "grams": 10.0
+      },
+      {
+        "ingredient_id": "salt",
+        "grams": 50.0
+      },
+      {
+        "ingredient_id": "rice",
+        "grams": 120.0
       }
     ]
   }
